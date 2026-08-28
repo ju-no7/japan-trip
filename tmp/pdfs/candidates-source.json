@@ -1,0 +1,312 @@
+[
+  {
+    "file": "places/fuji/chureito.md",
+    "city": "fuji",
+    "title": "Chureito / Arakurayama Sengen Park",
+    "status": "кандидат",
+    "day": "D05",
+    "role": "Только если успеваем забрать багаж и на автобус. Проверить лестницы/ограничения доступа.",
+    "duration": "1,5–2,5 ч + дорога",
+    "cost": "Из диалога: бесплатно, не перепроверено"
+  },
+  {
+    "file": "places/fuji/kawaguchiko.md",
+    "city": "fuji",
+    "title": "Озеро Kawaguchiko",
+    "status": "кандидат",
+    "day": "D04",
+    "role": "Виды на Фудзи не гарантированы; выбрать прогулку рядом с ночёвкой.",
+    "duration": "1–2 ч",
+    "cost": "Отдельный вход в диалоге не указан; транспорт отдельно"
+  },
+  {
+    "file": "places/fuji/oishi-park.md",
+    "city": "fuji",
+    "title": "Oishi Park",
+    "status": "кандидат",
+    "day": "D04",
+    "role": "Выбирать по погоде и логистике; не пытаться охватить всё побережье.",
+    "duration": "0,5–1 ч + дорога",
+    "cost": "Цена в диалоге не указана"
+  },
+  {
+    "file": "places/fuji/ropeway.md",
+    "city": "fuji",
+    "title": "Mt. Fuji Panoramic Ropeway",
+    "status": "альтернатива",
+    "day": "D04",
+    "role": "Вместо дальней прогулки; ветер/очередь могут отменить план.",
+    "duration": "1–1,5 ч + очередь",
+    "cost": "Из диалога: 1 000 YEN / 530 RUB/чел. туда-обратно, не перепроверено"
+  },
+  {
+    "file": "places/kyoto/arashiyama.md",
+    "city": "kyoto",
+    "title": "Arashiyama / Bamboo Grove",
+    "status": "кандидат",
+    "day": "D07",
+    "role": "Основной блок дня; конкретные сады/храмы не добавлять без времени и бюджета.",
+    "duration": "2–3 ч",
+    "cost": "Из диалога отдельный вход не заложен; платные зоны отдельно"
+  },
+  {
+    "file": "places/kyoto/fushimi-inari.md",
+    "city": "kyoto",
+    "title": "Fushimi Inari Taisha",
+    "status": "обязательно",
+    "day": "D06",
+    "role": "Защитить время для святилища; сокращать последующие необязательные точки.",
+    "duration": "3–4 ч на горный маршрут с паузами",
+    "cost": "требуется проверка"
+  },
+  {
+    "file": "places/kyoto/gion.md",
+    "city": "kyoto",
+    "title": "Gion",
+    "status": "кандидат",
+    "day": "D05 / D06",
+    "role": "Достаточно одного вечера; уважать частные территории и правила фото.",
+    "duration": "0,5–1 ч",
+    "cost": "Расходы заведений отдельно"
+  },
+  {
+    "file": "places/kyoto/higashiyama.md",
+    "city": "kyoto",
+    "title": "Higashiyama",
+    "status": "кандидат",
+    "day": "D06",
+    "role": "Объединить с Kiyomizu; не суммировать время одних и тех же улиц.",
+    "duration": "1–2 ч",
+    "cost": "Покупки и заведения отдельно"
+  },
+  {
+    "file": "places/kyoto/kinkakuji.md",
+    "city": "kyoto",
+    "title": "Kinkaku-ji",
+    "status": "кандидат",
+    "day": "D07",
+    "role": "Второй блок условный: нужен расчёт дороги от Arashiyama и времени закрытия.",
+    "duration": "1–1,5 ч + дорога",
+    "cost": "Из диалога: 500 YEN / 265 RUB/чел., не перепроверено"
+  },
+  {
+    "file": "places/kyoto/kiyomizu.md",
+    "city": "kyoto",
+    "title": "Kiyomizu-dera",
+    "status": "кандидат",
+    "day": "D06",
+    "role": "После отдыха и обеда; проверить билет/режим и специальные вечерние посещения.",
+    "duration": "1–1,5 ч",
+    "cost": "Из диалога: 500 YEN / 265 RUB/чел., не перепроверено"
+  },
+  {
+    "file": "places/kyoto/pontocho.md",
+    "city": "kyoto",
+    "title": "Pontocho",
+    "status": "кандидат",
+    "day": "D07",
+    "role": "Вечер по силам, не дополнительная обязательная экскурсия.",
+    "duration": "1–1,5 ч вместе с ужином",
+    "cost": "Внутри питания"
+  },
+  {
+    "file": "places/osaka/castle.md",
+    "city": "osaka",
+    "title": "Osaka Castle",
+    "status": "кандидат",
+    "day": "D08",
+    "role": "Отдельно решить парк или музей внутри; не путать бесплатную прогулку с билетом.",
+    "duration": "1,5–2,5 ч",
+    "cost": "Из диалога: 1 200 YEN / 636 RUB/чел. за посещение замка, не перепроверено"
+  },
+  {
+    "file": "places/osaka/dotonbori.md",
+    "city": "osaka",
+    "title": "Dotonbori",
+    "status": "кандидат",
+    "day": "D08",
+    "role": "Можно разделиться на пары, если трудно найти стол на шестерых.",
+    "duration": "1,5–2 ч с ужином",
+    "cost": "Внутри питания"
+  },
+  {
+    "file": "places/osaka/kuromon.md",
+    "city": "osaka",
+    "title": "Kuromon Market",
+    "status": "кандидат",
+    "day": "D09",
+    "role": "Выбрать по интересам; не считать рыночную еду вторым обедом.",
+    "duration": "1–1,5 ч с едой",
+    "cost": "Внутри питания"
+  },
+  {
+    "file": "places/osaka/namba.md",
+    "city": "osaka",
+    "title": "Namba",
+    "status": "кандидат",
+    "day": "D08",
+    "role": "Район прогулки/проживания, общий блок с Dotonbori.",
+    "duration": "внутри вечернего блока",
+    "cost": "Покупки и заведения отдельно"
+  },
+  {
+    "file": "places/osaka/shinsekai.md",
+    "city": "osaka",
+    "title": "Shinsekai",
+    "status": "кандидат",
+    "day": "D09",
+    "role": "Не добавлять башню/аттракционы автоматически.",
+    "duration": "1–1,5 ч",
+    "cost": "Платные объекты внутри района отдельно"
+  },
+  {
+    "file": "places/osaka/umeda-sky.md",
+    "city": "osaka",
+    "title": "Umeda Sky Building",
+    "status": "альтернатива",
+    "day": "D09",
+    "role": "Третья смотровая не обязательна; сравнить с выбранной в Токио.",
+    "duration": "1–1,5 ч + дорога",
+    "cost": "Из диалога: 2 000 YEN / 1 060 RUB/чел., не перепроверено"
+  },
+  {
+    "file": "places/osaka/usj.md",
+    "city": "osaka",
+    "title": "Universal Studios Japan",
+    "status": "альтернатива",
+    "day": "D09",
+    "role": "Заменяет весь D09. Отдельно проверить вход, Express Pass и правила зон, не обещать доступ.",
+    "duration": "целый день",
+    "cost": "Не включён в бюджет; цена неизвестна"
+  },
+  {
+    "file": "places/tokyo/akihabara.md",
+    "city": "tokyo",
+    "title": "Akihabara",
+    "status": "кандидат",
+    "day": "D02",
+    "role": "Согласовать интересы друзей и лимит покупок.",
+    "duration": "2–3 ч",
+    "cost": "Мерч и кафе отдельно"
+  },
+  {
+    "file": "places/tokyo/asakusa.md",
+    "city": "tokyo",
+    "title": "Asakusa",
+    "status": "кандидат",
+    "day": "D02",
+    "role": "Один блок с храмом; не считать эти длительности дважды.",
+    "duration": "1–2 ч вместе с Senso-ji",
+    "cost": "Прогулочная зона, платные услуги отдельно"
+  },
+  {
+    "file": "places/tokyo/harajuku.md",
+    "city": "tokyo",
+    "title": "Harajuku",
+    "status": "кандидат",
+    "day": "D03",
+    "role": "Короткая прогулка между Meiji и Shibuya; можно сократить.",
+    "duration": "1–1,5 ч",
+    "cost": "Покупки отдельно"
+  },
+  {
+    "file": "places/tokyo/iggy-cafe.md",
+    "city": "tokyo",
+    "title": "IGGY CAFE",
+    "status": "обязательно",
+    "day": "D03",
+    "role": "Кафе внутри JoJo; меню 2027 и посадка группы пока неизвестны.",
+    "duration": "внутри общего блока JoJo",
+    "cost": "Питание, не входные билеты; исторический лимит 4 000–6 000 YEN / 2 120–3 180 RUB/двоих"
+  },
+  {
+    "file": "places/tokyo/jojo-world.md",
+    "city": "tokyo",
+    "title": "THE★JOJO WORLD TOKYO",
+    "status": "обязательно",
+    "day": "D03",
+    "role": "Официальный магазин JoJo в Shibuya PARCO, 6 этаж. Повторная проверка на 2027 обязательна.",
+    "duration": "1,5–2,5 ч вместе с IGGY CAFE",
+    "cost": "Вход обычно без записи; выбранные платные услуги отдельно"
+  },
+  {
+    "file": "places/tokyo/meiji.md",
+    "city": "tokyo",
+    "title": "Meiji Jingu",
+    "status": "кандидат",
+    "day": "D03",
+    "role": "Не задерживать обязательный JoJo; проверить часы выбранных зон.",
+    "duration": "1–1,5 ч",
+    "cost": "В диалоге вход отдельно не оценивался"
+  },
+  {
+    "file": "places/tokyo/sensoji.md",
+    "city": "tokyo",
+    "title": "Senso-ji",
+    "status": "кандидат",
+    "day": "D02",
+    "role": "Проверить доступ к выбранным зонам и часы; не переносить режим из памяти.",
+    "duration": "внутри блока Asakusa",
+    "cost": "В диалоге вход отдельно не оценивался"
+  },
+  {
+    "file": "places/tokyo/shibuya-sky.md",
+    "city": "tokyo",
+    "title": "Shibuya Sky",
+    "status": "кандидат",
+    "day": "D03",
+    "role": "Не привязывать точный закат до выбора дат; проверить ветер, отмены и доступ на крышу.",
+    "duration": "1–1,5 ч + очередь",
+    "cost": "Из диалога: 3 400 YEN / 1 802 RUB/чел. после 15:00 онлайн, не перепроверено"
+  },
+  {
+    "file": "places/tokyo/shibuya.md",
+    "city": "tokyo",
+    "title": "Shibuya / Crossing",
+    "status": "кандидат",
+    "day": "D03",
+    "role": "Связующий район; не суммировать его время с JoJo и Sky.",
+    "duration": "0,5–1 ч вне PARCO",
+    "cost": "Покупки и заведения отдельно"
+  },
+  {
+    "file": "places/tokyo/shinjuku.md",
+    "city": "tokyo",
+    "title": "Shinjuku",
+    "status": "кандидат",
+    "day": "D01",
+    "role": "Прогулка после заселения, только если останутся силы.",
+    "duration": "1–2 ч",
+    "cost": "Не закладывали отдельный вход; расходы заведений отдельно"
+  },
+  {
+    "file": "places/tokyo/skytree.md",
+    "city": "tokyo",
+    "title": "Tokyo Skytree",
+    "status": "альтернатива",
+    "day": "D02",
+    "role": "Вместо Akihabara или другой смотровой; проверить тип билета.",
+    "duration": "1,5–2 ч + очередь",
+    "cost": "Из диалога: 2 400–3 800 YEN / 1 272–2 014 RUB/чел., не перепроверено"
+  },
+  {
+    "file": "places/tokyo/teamlab.md",
+    "city": "tokyo",
+    "title": "teamLab Borderless",
+    "status": "альтернатива",
+    "day": "D02",
+    "role": "Меняет географию дня; отдельный слот вместо другого крупного блока. Не путать с teamLab Planets.",
+    "duration": "2–3 ч + дорога",
+    "cost": "Из диалога: от 3 600 YEN / 1 908 RUB/чел., не перепроверено"
+  },
+  {
+    "file": "places/tokyo/ueno.md",
+    "city": "tokyo",
+    "title": "Ueno",
+    "status": "альтернатива",
+    "day": "D02",
+    "role": "Вместо Akihabara, не дополнительный обязательный блок.",
+    "duration": "1,5–3 ч",
+    "cost": "Музеи/зоопарк отдельно, цены неизвестны"
+  }
+]

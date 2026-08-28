@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101412">
+  <meta name="description" content="Япония 2027: десятидневное путешествие через Токио, Фудзи, Киото и Осаку.">
+  <title>Япония 2027 — путешествие на двоих</title>
+  <style>
+    :root {
+      --ink: #101412;
+      --ink-soft: #1b211e;
+      --ivory: #f2eee5;
+      --paper: #e8e1d5;
+      --muted: #aaa79f;
+      --red: #aa382d;
+      --red-bright: #d15743;
+      --gold: #b59a68;
+      --line: rgba(242, 238, 229, .16);
+      --ease: cubic-bezier(.2,.75,.25,1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--ink); }
+    body { margin: 0; color: var(--ivory); background: var(--ink); font-family: Inter, "Segoe UI", Arial, sans-serif; overflow-x: hidden; }
+    .scroll-progress { position: fixed; inset: 0 0 auto; height: 2px; z-index: 101; pointer-events: none; background: rgba(255,255,255,.04); }
+    .scroll-progress i { display: block; width: 100%; height: 100%; transform: scaleX(0); transform-origin: left; background: linear-gradient(90deg, var(--red-bright), var(--gold), var(--ivory)); box-shadow: 0 0 18px rgba(209,87,67,.6); will-change: transform; }
+    .cursor-orb { position: fixed; left: 0; top: 0; width: 300px; height: 300px; margin: -150px 0 0 -150px; z-index: 1; pointer-events: none; opacity: 0; border-radius: 50%; background: radial-gradient(circle, rgba(209,87,67,.1) 0, rgba(181,154,104,.045) 35%, transparent 70%); transition: opacity .35s, transform .12s linear; will-change: transform; contain: strict; }
+    .cursor-orb.active { opacity: 1; }
+    .ambient-lines { position: absolute; inset: 0 0 auto; height: 100vh; z-index: 1; pointer-events: none; overflow: hidden; opacity: .13; contain: strict; }
+    .ambient-lines i { position: absolute; top: -25vh; width: 1px; height: 150vh; background: linear-gradient(transparent, rgba(181,154,104,.5), transparent); animation: driftLine 15s linear infinite; }
+    .ambient-lines i:nth-child(1) { left: 18%; animation-delay: -3s; }
+    .ambient-lines i:nth-child(2) { left: 57%; animation-delay: -10s; animation-duration: 21s; }
+    .ambient-lines i:nth-child(3) { left: 84%; animation-delay: -6s; animation-duration: 18s; }
+    @keyframes driftLine { 0% { transform: translateY(-28%) scaleY(.4); opacity:0; } 20% { opacity:1; } 100% { transform: translateY(40%) scaleY(1); opacity:0; } }
+    body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 99; opacity: .045; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E"); }
+    a { color: inherit; }
+    button { font: inherit; }
+    .shell { width: min(1280px, calc(100% - 48px)); margin-inline: auto; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--gold); text-transform: uppercase; letter-spacing: .18em; font-size: 11px; font-weight: 700; }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+    .display { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.045em; }
+    .red { color: var(--red-bright); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 20; transition: background .35s, border-color .35s; border-bottom: 1px solid transparent; }
+    nav.scrolled { background: rgba(16,20,18,.88); backdrop-filter: blur(16px); border-color: var(--line); }
+    .nav-inner { height: 76px; display: flex; align-items: center; justify-content: space-between; }
+    .mark { text-decoration: none; display: flex; align-items: center; gap: 12px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .mon { width: 30px; aspect-ratio: 1; border-radius: 50%; background: var(--red); display: grid; place-items: center; font-family: Georgia, serif; font-size: 15px; color: var(--ivory); }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a { text-decoration: none; color: rgba(242,238,229,.72); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; transition: color .2s; }
+    .nav-links a:hover { color: var(--ivory); }
+
+    .hero { min-height: 100svh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+    .hero-bg { position: absolute; inset: -4%; background: linear-gradient(90deg, rgba(8,14,17,.95) 0%, rgba(8,14,17,.74) 34%, rgba(8,14,17,.15) 72%), linear-gradient(0deg, var(--ink) 0%, transparent 42%), url("assets/japan-hero.png") center/cover no-repeat; transform: translate3d(var(--mouse-x,0), calc(var(--mouse-y,0) + var(--parallax-y,0px)), 0) scale(1.06); animation: breathe 16s ease-in-out infinite alternate; will-change: transform; }
+    @keyframes breathe { to { opacity: .985; } }
+    [data-parallax] { --parallax-y: 0px; will-change: transform; }
+    .hero-rings { position: absolute; right: 8vw; top: 15vh; width: min(38vw, 540px); aspect-ratio: 1; z-index: 1; pointer-events: none; opacity: .38; }
+    .hero-rings i { position: absolute; inset: 0; border: 1px solid rgba(242,238,229,.2); border-radius: 50%; animation: ringTurn 24s linear infinite; }
+    .hero-rings i::after { content:""; position:absolute; width:7px; height:7px; background:var(--red-bright); border-radius:50%; left:13%; top:12%; box-shadow:0 0 24px var(--red-bright); }
+    .hero-rings i:nth-child(2) { inset: 16%; animation-direction: reverse; animation-duration: 17s; border-color: rgba(181,154,104,.3); }
+    .hero-rings i:nth-child(3) { inset: 34%; animation-duration: 11s; border-style: dashed; }
+    @keyframes ringTurn { to { transform: rotate(360deg); } }
+    .silk-veil { position:absolute; inset:0; z-index:6; pointer-events:none; background:var(--ink); transform-origin:top; animation:silkOpen 1.35s .12s var(--ease) forwards; will-change:transform; }
+    .silk-veil::after { content:""; position:absolute; inset:auto 0 0; height:4px; background:linear-gradient(90deg,transparent,var(--red-bright),var(--gold),transparent); box-shadow:0 0 35px rgba(209,87,67,.6); }
+    @keyframes silkOpen { 0% { transform:scaleY(1); } 100% { transform:scaleY(0); } }
+    .kiss-line { position:absolute; z-index:3; left:58%; top:-15%; width:2px; height:130%; pointer-events:none; background:linear-gradient(transparent,var(--red-bright) 32%,var(--gold) 58%,transparent); opacity:0; transform:rotate(17deg) translateY(-60%); animation:kissDrop 1.7s 1.05s var(--ease) forwards; box-shadow:0 0 22px rgba(209,87,67,.45); }
+    @keyframes kissDrop { 45% { opacity:.75; } 100% { opacity:.26; transform:rotate(17deg) translateY(0); } }
+    .hero-content { position: relative; z-index: 2; padding: 150px 0 82px; }
+    .hero h1 { font-size: clamp(64px, 10vw, 148px); line-height: .78; max-width: 830px; margin: 30px 0 34px; text-wrap: balance; }
+    .hero h1 > span { display: block; }
+    .hero h1 .hero-sub { font-style: italic; margin-left: .6em; font-size: .6em; color: var(--paper); }
+    [data-kinetic] .glyph { display: inline-block; opacity: 0; transform: translate3d(0, 1.05em, 0) rotate(5deg); animation: glyphIn 1s var(--ease) forwards; animation-delay: calc(.22s + var(--i) * 45ms); }
+    [data-kinetic] .glyph.space { width: .25em; }
+    @keyframes glyphIn { to { opacity: 1; transform: none; } }
+    .hero-intro { width: min(550px, 100%); margin: 0 0 56px; color: rgba(242,238,229,.78); line-height: 1.7; font-size: 17px; }
+    .hero-meta { display: grid; grid-template-columns: repeat(4, minmax(115px, 1fr)); max-width: 760px; border-top: 1px solid var(--line); padding-top: 22px; }
+    .hero-meta strong { display: block; font-family: Georgia, serif; font-size: 25px; font-weight: 400; }
+    .hero-meta span { display: block; margin-top: 6px; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .11em; }
+    .scroll-cue { position: absolute; right: 30px; bottom: 52px; z-index: 3; display: flex; align-items: center; gap: 13px; transform: rotate(90deg); transform-origin: right; color: rgba(242,238,229,.55); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; }
+    .scroll-cue i { display: block; width: 50px; height: 1px; background: rgba(242,238,229,.45); position: relative; overflow: hidden; }
+    .scroll-cue i::after { content:""; position:absolute; width: 40%; inset-block: 0; background: var(--ivory); animation: cue 2s infinite; }
+    @keyframes cue { from { left: -50%; } to { left: 110%; } }
+
+    section { position: relative; }
+    .manifesto { padding: 150px 0 130px; overflow: hidden; }
+    .manifesto::after { content: "旅"; position: absolute; right: -30px; top: 20px; color: rgba(242,238,229,.025); font-family: serif; font-size: 440px; line-height: 1; }
+    .manifesto-grid { display: grid; grid-template-columns: .75fr 1.65fr; gap: 8vw; align-items: start; }
+    .manifesto h2 { font-size: clamp(44px, 6vw, 86px); line-height: .98; margin: 26px 0; max-width: 900px; }
+    .manifesto-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; color: #bbb9b1; line-height: 1.75; }
+    .manifesto-copy p { margin: 0; }
+    .manifesto-copy p:first-child::first-letter { float: left; color: var(--red-bright); font-family: Georgia,serif; font-size: 66px; line-height: .8; padding: 10px 10px 0 0; }
+
+    .route { background: var(--ivory); color: var(--ink); padding: 140px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 40px; margin-bottom: 80px; }
+    .section-head h2 { font-size: clamp(50px, 7vw, 100px); line-height: .88; margin: 20px 0 0; }
+    .section-head p { width: min(400px, 100%); color: #59605b; line-height: 1.7; margin: 0; }
+    .route-line { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; overflow: visible; isolation:isolate; }
+    .route-line::before { content: ""; position: absolute; z-index:0; left: 0; right: 0; top: 19px; height: 1px; background: #cfc8bc; }
+    .route-line::after { content: ""; position: absolute; z-index:0; left: 0; top: 18px; height: 3px; width: 100%; background: linear-gradient(90deg, var(--red), var(--gold)); transform: scaleX(var(--route-progress,0)); transform-origin: left; transition: transform .08s linear; }
+    .stop { position: relative; z-index:1; padding-right: 40px; overflow:visible; }
+    .stop-dot { position: relative; z-index: 3; width: 39px; height: 39px; border: 1px solid #bcb3a5; border-radius: 50%; background: var(--ivory); display: grid; place-items: center; }
+    .stop-dot::after { content:""; width: 7px; height: 7px; background: var(--red); border-radius: 50%; }
+    .stop:nth-child(3) .stop-dot { background: var(--red); border-color: var(--red); }
+    .stop:nth-child(3) .stop-dot::after { background: var(--ivory); }
+    .stop-dot { transition: transform .5s var(--ease), box-shadow .5s; }
+    .stop:hover .stop-dot { transform: scale(1.2); box-shadow: 0 0 0 12px rgba(170,56,45,.08); }
+    .stop small { display: block; margin: 24px 0 12px; color: #7c776f; text-transform: uppercase; letter-spacing: .14em; font-size: 10px; }
+    .stop h3 { font-family: Georgia,serif; font-size: 32px; font-weight: 400; margin: 0 0 16px; }
+    .stop p { color: #666861; line-height: 1.6; font-size: 14px; margin: 0; }
+
+    .days { padding: 140px 0 110px; background: #141816; overflow: hidden; }
+    .days-top { display: flex; justify-content: space-between; align-items: end; margin-bottom: 54px; }
+    .days h2 { font-size: clamp(50px, 7vw, 96px); line-height: .9; margin: 20px 0 0; }
+    .slider-controls { display: flex; gap: 8px; }
+    .slider-controls button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ivory); cursor: pointer; transition: .2s; }
+    .slider-controls button:hover { background: var(--ivory); color: var(--ink); }
+    .marquee { width: 100%; overflow: hidden; cursor: grab; }
+    .marquee:active { cursor: grabbing; }
+    .track { display: flex; width: max-content; gap: 18px; animation: slide 56s linear infinite; will-change: transform; }
+    .marquee:hover .track, .marquee.paused .track { animation-play-state: paused; }
+    @keyframes slide { to { transform: translateX(calc(-50% - 9px)); } }
+    .day-card { width: clamp(290px, 27vw, 390px); min-height: 480px; padding: 30px; border: 1px solid var(--line); background: radial-gradient(circle at var(--card-x,50%) var(--card-y,50%), rgba(209,87,67,.12), transparent 32%), linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.012)); display: flex; flex-direction: column; position: relative; overflow: hidden; transform: perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0); transition: transform .18s ease-out, border-color .3s, box-shadow .3s; will-change: transform; }
+    .day-card:hover { border-color: rgba(181,154,104,.44); box-shadow: 0 28px 60px rgba(0,0,0,.23); }
+    .day-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+    .day-card { cursor: pointer; }
+    .card-open { position:relative; z-index:3; display:inline-flex; align-items:center; gap:8px; color:var(--gold); font-size:10px; letter-spacing:.13em; text-transform:uppercase; }
+    .card-open i { width:22px; height:1px; background:currentColor; position:relative; transition:width .3s var(--ease); }
+    .card-open i::after { content:""; position:absolute; right:0; top:-2px; width:5px; height:5px; border-top:1px solid currentColor; border-right:1px solid currentColor; transform:rotate(45deg); }
+    .day-card:hover .card-open i { width:35px; }
+    .card-glint { position:absolute; z-index:2; inset:-20% auto -20% -45%; width:25%; pointer-events:none; background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent); transform:skewX(-18deg) translateX(-220%); transition:transform .75s var(--ease); }
+    .day-card:hover .card-glint { transform:skewX(-18deg) translateX(680%); }
+    .day-card::after { content: attr(data-kanji); position: absolute; right: -8px; bottom: -34px; color: rgba(255,255,255,.026); font-family: serif; font-size: 170px; }
+    .day-no { display: flex; justify-content: space-between; color: var(--gold); font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+    .day-card h3 { font-family: Georgia,serif; font-weight: 400; font-size: 34px; line-height: 1.08; margin: 70px 0 20px; }
+    .day-card p { color: #aaa9a3; line-height: 1.7; margin: 0; font-size: 14px; }
+    .day-card footer { margin-top: auto; border-top: 1px solid var(--line); padding-top: 20px; display: flex; align-items: center; justify-content: space-between; color: #d6d1c8; font-size: 12px; }
+    .day-card footer b { width: 7px; height: 7px; background: var(--red-bright); border-radius: 50%; }
+    .slider-note { color: #6f746f; text-align: center; font-size: 11px; letter-spacing: .08em; margin-top: 28px; }
+    .editorial-interlude { height:270px; overflow:hidden; background:#111513; color:var(--ivory); position:relative; border-bottom:1px solid var(--line); }
+    .editorial-interlude::before { content:""; position:absolute; inset:0; opacity:.22; background:linear-gradient(90deg, transparent 0 24.9%, var(--line) 25%, transparent 25.1% 49.9%, var(--line) 50%, transparent 50.1% 74.9%, var(--line) 75%, transparent 75.1%); }
+    .interlude-grid { height:100%; display:grid; grid-template-columns:.72fr 1.2fr .72fr; align-items:center; position:relative; }
+    .edition-label { align-self:stretch; padding:48px 0; display:flex; flex-direction:column; justify-content:space-between; text-transform:uppercase; letter-spacing:.2em; font-size:9px; color:var(--gold); }
+    .edition-label::before { content:""; width:28px; height:44px; background:var(--red); transform:skewY(-8deg); box-shadow:10px 10px 0 rgba(181,154,104,.12); }
+    .edition-label small { color:#6f746f; font-size:8px; letter-spacing:.16em; }
+    .editorial-ten { height:100%; display:flex; align-items:center; justify-content:center; position:relative; }
+    .editorial-ten b { font-family:Georgia,serif; font-size:245px; line-height:.7; font-weight:400; letter-spacing:-.1em; color:transparent; -webkit-text-stroke:1px rgba(242,238,229,.68); transform:translateY(-2px); }
+    .editorial-ten i { position:absolute; bottom:44px; left:56%; font-family:Georgia,serif; font-size:28px; font-weight:400; color:var(--red-bright); letter-spacing:.08em; }
+    .editorial-note { justify-self:end; display:grid; grid-template-columns:auto 1fr; align-items:center; gap:22px; max-width:260px; }
+    .editorial-note > span { font-family:serif; font-size:54px; color:var(--gold); writing-mode:vertical-rl; }
+    .editorial-note p { margin:0; color:#8f948f; font-size:11px; line-height:1.65; text-transform:uppercase; letter-spacing:.1em; }
+
+    .moments { background: var(--ivory); color: var(--ink); padding: 140px 0; }
+    .moments-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 110px; }
+    .moments h2 { font-size: clamp(46px, 6vw, 84px); line-height: .95; margin: 18px 0 44px; }
+    .feature-list { border-top: 1px solid #cfc8bc; }
+    .feature { display: grid; grid-template-columns: 60px 1fr auto; gap: 18px; align-items: center; padding: 26px 0; border-bottom: 1px solid #cfc8bc; }
+    .feature .num { color: var(--red); font-family: Georgia,serif; font-style: italic; }
+    .feature h3 { margin: 0 0 6px; font-family: Georgia,serif; font-size: 24px; font-weight: 400; }
+    .feature p { margin: 0; color: #73736d; font-size: 13px; }
+    .feature .arrow { font-size: 24px; font-weight: 200; }
+    .quote-card { background: var(--red); color: var(--ivory); padding: 54px; min-height: 570px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+    .quote-card::before { content:"日の本"; position:absolute; right:-16px; bottom:-15px; font-family:serif; font-size:120px; color:rgba(255,255,255,.08); writing-mode:vertical-rl; }
+    .quote-card .sun { width: 65px; height: 65px; border: 1px solid rgba(255,255,255,.45); border-radius: 50%; }
+    .quote-card blockquote { font-family: Georgia,serif; font-size: clamp(34px,4vw,52px); line-height: 1.03; letter-spacing: -.03em; margin: 60px 0 20px; }
+    .quote-card p { margin: 0; max-width: 300px; line-height: 1.65; color: rgba(255,255,255,.72); font-size: 13px; }
+
+    .budget { padding: 150px 0 120px; background: #0d1110; }
+    .budget-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 10vw; align-items: start; }
+    .budget h2 { font-size: clamp(50px, 6vw, 88px); margin: 22px 0 40px; line-height: .94; }
+    .total { padding: 30px 0; border-block: 1px solid var(--line); }
+    .total strong { display: block; font-family: Georgia,serif; font-size: clamp(42px,5vw,70px); font-weight: 400; color: var(--paper); }
+    .total span { color: var(--gold); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; }
+    .budget-lead { color: #9c9f99; line-height: 1.7; margin-top: 28px; max-width: 500px; }
+    .bars { padding-top: 18px; }
+    .bar { margin-bottom: 29px; }
+    .bar-top { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 11px; }
+    .bar-top span:last-child { color: var(--muted); }
+    .bar-line { height: 4px; background: rgba(255,255,255,.09); overflow: hidden; }
+    .bar-line i { display: block; height: 100%; width: var(--w); background: linear-gradient(90deg, var(--red), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 1.2s var(--ease); }
+    .budget.visible .bar-line i { transform: scaleX(1); }
+    .budget-note { margin-top: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .budget-note strong { font-family: Georgia,serif; font-size: 27px; font-weight: 400; display: block; margin-bottom: 8px; }
+    .budget-note span { color: #777c77; font-size: 12px; line-height: 1.5; }
+
+    .day-sheet { position:fixed; inset:0; width:min(1180px,calc(100% - 64px)); max-width:none; height:min(78svh,780px); max-height:none; margin:auto; padding:0; border:0; border-radius:24px; overflow:hidden; color:var(--ink); background:var(--ivory); box-shadow:0 35px 100px rgba(0,0,0,.46); }
+    .day-sheet[open] { animation:sheetIn .55s var(--ease) both; }
+    .day-sheet.closing { animation:sheetOut .38s var(--ease) both; }
+    .day-sheet::backdrop { background:rgba(4,7,6,.76); animation:backdropIn .4s ease both; }
+    @keyframes sheetIn { from { opacity:0; transform:translateY(100%) scale(.98); } to { opacity:1; transform:none; } }
+    @keyframes sheetOut { to { opacity:0; transform:translateY(100%) scale(.98); } }
+    @keyframes backdropIn { from { opacity:0; } to { opacity:1; } }
+    .day-sheet-scroll { height:100%; overflow:auto; overscroll-behavior:contain; scrollbar-width:thin; }
+    .day-sheet-close { position:absolute; z-index:5; top:22px; right:22px; width:46px; height:46px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.32); border-radius:50%; background:rgba(16,20,18,.28); color:white; cursor:pointer; font-size:22px; transition:background .2s, transform .2s; }
+    .day-sheet-close:hover { background:var(--red); transform:rotate(8deg); }
+    .day-gallery { height:260px; min-height:0; display:grid; grid-template-columns:1.55fr .75fr; gap:4px; background:var(--ink); }
+    .day-gallery figure { margin:0; position:relative; overflow:hidden; background:#252a27; }
+    .day-gallery figure:only-child { grid-column:1 / -1; }
+    .day-gallery img { width:100%; height:100%; display:block; object-fit:cover; transform:scale(1.025); animation:imageSettle 1.1s var(--ease) both; }
+    .day-gallery img[src$="evening-kyoto.jpg"] { object-position:55% 58%; }
+    .day-gallery figure:nth-child(2) img { animation-delay:.1s; }
+    @keyframes imageSettle { from { opacity:.25; transform:scale(1.11); } to { opacity:1; transform:scale(1.025); } }
+    .day-gallery figcaption { position:absolute; inset:auto 18px 16px; padding:7px 8px 7px 10px; display:flex; align-items:center; gap:10px; color:white; background:rgba(10,14,12,.58); font-size:10px; letter-spacing:.1em; text-transform:uppercase; }
+    .photo-info { width:18px; height:18px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.42); border-radius:50%; color:white; text-decoration:none; font-size:9px; line-height:1; opacity:.72; transition:opacity .2s, background .2s; }
+    .photo-info:hover,.photo-info:focus-visible { opacity:1; background:var(--red); }
+    .day-sheet-body { display:grid; grid-template-columns:.72fr 1.28fr; gap:5vw; padding:38px clamp(34px,4vw,56px) 40px; }
+    .day-sheet-kicker { color:var(--red); text-transform:uppercase; letter-spacing:.16em; font-size:10px; font-weight:700; }
+    .day-sheet h2 { margin:13px 0 16px; font-family:Georgia,serif; font-weight:400; font-size:clamp(38px,4vw,58px); line-height:.94; letter-spacing:-.04em; }
+    .day-sheet-lead { color:#666b67; line-height:1.58; margin:0; font-size:14px; }
+    .day-places { display:flex; flex-wrap:wrap; gap:7px; margin-top:22px; }
+    .day-places span { padding:8px 11px; border:1px solid #cbc4b8; border-radius:999px; color:#5d605c; font-size:11px; }
+    .day-flow { border-top:1px solid #c9c2b7; }
+    .day-flow-item { display:grid; grid-template-columns:72px 1fr; gap:18px; padding:15px 0; border-bottom:1px solid #d6d0c5; }
+    .day-flow-item time { color:var(--red); font-size:10px; letter-spacing:.13em; text-transform:uppercase; padding-top:4px; }
+    .day-flow-item strong { display:block; font-family:Georgia,serif; font-size:19px; font-weight:400; margin-bottom:5px; }
+    .day-flow-item p { margin:0; color:#71736e; font-size:13px; line-height:1.55; }
+    .day-alt { margin-top:20px; padding:16px 19px; background:#e2dcd1; border-left:2px solid var(--gold); }
+    .day-alt b { display:block; margin-bottom:6px; color:var(--red); font-size:10px; letter-spacing:.12em; text-transform:uppercase; }
+    .day-alt span { color:#5f625e; font-size:13px; line-height:1.55; }
+    body.sheet-open { overflow:hidden; }
+
+    .final { min-height: 76vh; display: grid; place-items: center; text-align: center; background: radial-gradient(circle at 50% 45%, #27312c 0, var(--ink) 56%); overflow: hidden; }
+    .final::before { content:""; position:absolute; width:min(44vw,560px); aspect-ratio:1; border:1px solid rgba(181,154,104,.25); border-radius:50%; }
+    .final-inner { position:relative; padding: 130px 20px; }
+    .final h2 { font-size: clamp(66px,10vw,145px); line-height:.8; margin: 30px 0; }
+    .final p { color:#999d98; max-width:560px; margin:0 auto; line-height:1.7; }
+    .stamp { display:inline-grid; place-items:center; width:72px; aspect-ratio:1; border:1px solid var(--red-bright); color:var(--red-bright); font-family:Georgia,serif; font-size:22px; transform:rotate(-7deg); margin-top:50px; }
+    .stamp { animation: stampFloat 4.8s ease-in-out infinite; }
+    @keyframes stampFloat { 0%,100% { transform:rotate(-7deg) translateY(0); } 50% { transform:rotate(-2deg) translateY(-12px); } }
+    [data-magnetic] { --mag-x: 0px; --mag-y: 0px; transform: translate3d(var(--mag-x),var(--mag-y),0); transition: transform .25s var(--ease), background .2s, color .2s; will-change: transform; }
+    .site-footer { border-top:1px solid var(--line); padding:28px 0; color:#676b67; font-size:11px; letter-spacing:.08em; }
+    .site-footer .shell { display:flex; justify-content:space-between; gap:20px; }
+
+    section:not(.hero):not(.editorial-interlude) { content-visibility: auto; contain-intrinsic-size: 900px; }
+    .reveal { opacity: 0; transform: translateY(34px); clip-path: inset(0 0 15% 0); transition: opacity .85s var(--ease), transform .85s var(--ease), clip-path 1.15s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; clip-path: inset(0); }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *, *::before, *::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; } .reveal { opacity:1; transform:none; clip-path:none; } .cursor-orb,.ambient-lines,.hero-rings,.kiss-line,.silk-veil { display:none; } [data-kinetic] .glyph { opacity:1; transform:none; } }
+    @media (max-width: 850px) {
+      .shell { width: min(100% - 30px, 680px); }
+      .nav-links { display:none; }
+      .hero-content { padding-bottom: 52px; }
+      .hero h1 { font-size: clamp(58px, 18vw, 100px); }
+      .hero-meta { grid-template-columns: 1fr 1fr; gap:20px; }
+      .scroll-cue { display:none; }
+      .manifesto, .route, .days, .moments, .budget { padding-block: 95px; }
+      .manifesto-grid, .moments-grid, .budget-grid { grid-template-columns: 1fr; gap:60px; }
+      .manifesto-copy { grid-template-columns:1fr; gap:18px; }
+      .section-head, .days-top { align-items:start; flex-direction:column; }
+      .route-line { grid-template-columns:1fr; gap:0; }
+      .route-line::before { top:0; bottom:0; left:19px; right:auto; width:1px; height:auto; }
+      .route-line::after { top:0; bottom:0; left:18px; width:3px; height:auto; transform:scaleY(var(--route-progress,0)); transform-origin:top; }
+      .stop { padding:0 0 42px 67px; }
+      .stop-dot { position:absolute; left:0; top:0; }
+      .stop small { margin-top:0; padding-top:7px; }
+      .moments-grid { gap:50px; }
+      .quote-card { min-height:470px; padding:35px; }
+      .site-footer .shell { flex-direction:column; }
+      .hero-rings { width:72vw; right:-26vw; top:18vh; opacity:.2; }
+      .cursor-orb { display:none; }
+      .day-sheet { inset:auto 0 0; width:100%; height:94svh; margin:auto auto 0; border-radius:20px 20px 0 0; }
+      .day-gallery { height:34%; min-height:230px; grid-template-columns:1.25fr .75fr; }
+      .day-sheet-body { grid-template-columns:1fr; gap:38px; padding:38px 22px 55px; }
+      .day-sheet-close { top:14px; right:14px; }
+      .day-flow-item { grid-template-columns:62px 1fr; }
+      .editorial-interlude { height:220px; }
+      .interlude-grid { grid-template-columns:.7fr 1.3fr; }
+      .editorial-ten b { font-size:180px; }
+      .editorial-note { display:none; }
+      .edition-label { padding:34px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><i id="scrollProgress"></i></div>
+  <div class="cursor-orb" id="cursorOrb" aria-hidden="true"></div>
+  <div class="ambient-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+  <nav id="nav">
+    <div class="shell nav-inner">
+      <a class="mark" href="#top" data-magnetic><span class="mon">日</span> Japan / 2027</a>
+      <div class="nav-links"><a href="#route">Маршрут</a><a href="#days">10 дней</a><a href="#moments">Главное</a><a href="#budget">Бюджет</a></div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="silk-veil" aria-hidden="true"></div>
+      <div class="hero-bg" data-parallax="0.16" aria-hidden="true"></div>
+      <div class="hero-rings" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="kiss-line" aria-hidden="true"></div>
+      <div class="shell hero-content" data-parallax="-0.06">
+        <div class="eyebrow">17–26 октября · осень 2027</div>
+        <h1 class="display"><span data-kinetic>Япония</span><span class="hero-sub" data-kinetic>впервые</span></h1>
+        <p class="hero-intro">Десять дней от электрического Токио до тихого утра у Фудзи, храмовых троп Киото и гастрономических ночей Осаки. Путешествие, собранное вокруг того, что действительно хочется запомнить.</p>
+        <div class="hero-meta">
+          <div><strong>10</strong><span>дней</span></div>
+          <div><strong>4</strong><span>базы</span></div>
+          <div><strong>9</strong><span>ночей</span></div>
+          <div><strong>2</strong><span>человека</span></div>
+        </div>
+      </div>
+      <div class="scroll-cue"><span>смотреть маршрут</span><i></i></div>
+    </section>
+
+    <section class="manifesto">
+      <div class="shell manifesto-grid reveal">
+        <div><div class="eyebrow">Замысел</div></div>
+        <div>
+          <h2 class="display">Четыре лица страны.<br><span class="red">Одна история.</span></h2>
+          <div class="manifesto-copy">
+            <p>Первое знакомство начинается с контраста. Асакуса и Акихабара, синтоистский лес и Shibuya PARCO, старые улицы и цифровое искусство. В центре — личные точки притяжения: THE JOJO WORLD, IGGY CAFE и Фусими Инари.</p>
+            <p>Ритм меняется вместе с пейзажем: три ночи в Токио, ночь у озера Кавагутико, три ночи в Киото и финальные две — в Осаке. Каждый переезд открывает новую главу, а не забирает день целиком.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="route" id="route">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">Маршрут</div><h2 class="display">От неона<br>к тишине</h2></div>
+          <p>Линейная логистика без возвратов: прилёт в Токио, переезд через район Фудзи и Кансай, вылет из KIX.</p>
+        </div>
+        <div class="route-line reveal">
+          <article class="stop"><div class="stop-dot"></div><small>Дни 01–03 · 3 ночи</small><h3>Токио</h3><p>Старый город, аниме-кварталы, Shibuya и главный день JoJo.</p></article>
+          <article class="stop"><div class="stop-dot"></div><small>День 04 · 1 ночь</small><h3>Кавагутико</h3><p>Озеро, вечерний свет и два шанса увидеть Фудзи — вечером и утром.</p></article>
+          <article class="stop"><div class="stop-dot"></div><small>Дни 05–07 · 3 ночи</small><h3>Киото</h3><p>Фусими Инари, Хигасияма, Арасияма и вечерний Понточо.</p></article>
+          <article class="stop"><div class="stop-dot"></div><small>Дни 08–10 · 2 ночи</small><h3>Осака</h3><p>Дотонбори, рынки, городская гастрономия и удобный вылет через KIX.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="editorial-interlude" aria-label="Переход к дневнику маршрута">
+      <div class="shell interlude-grid">
+        <div class="edition-label"><span>Itinerary / Edition 02</span><small>Autumn—Winter 2027</small></div>
+        <div class="editorial-ten" aria-hidden="true"><b>10</b><i>days</i></div>
+        <div class="editorial-note"><span>旅程</span><p>Ten scenes.<br>One continuous<br>Japanese story.</p></div>
+      </div>
+    </section>
+
+    <section class="days" id="days">
+      <div class="shell days-top">
+        <div><div class="eyebrow">Дневник маршрута</div><h2 class="display">Десять дней</h2></div>
+        <div class="slider-controls"><button id="prev" data-magnetic aria-label="Предыдущий день">←</button><button id="next" data-magnetic aria-label="Следующий день">→</button></div>
+      </div>
+      <div class="marquee" id="marquee" aria-label="Автоматическая лента маршрута">
+        <div class="track" id="track"></div>
+      </div>
+      <div class="slider-note">Лента движется автоматически · наведите или коснитесь, чтобы остановить</div>
+    </section>
+
+    <section class="moments" id="moments">
+      <div class="shell moments-grid">
+        <div class="reveal">
+          <div class="eyebrow">Точки притяжения</div>
+          <h2 class="display">То, ради чего<br>едем</h2>
+          <div class="feature-list">
+            <div class="feature"><div class="num">01</div><div><h3>Токио — культура столицы</h3><p>Асакуса, Акихабара и современная Shibuya; THE JOJO WORLD и IGGY CAFE — личная кульминация города.</p></div><div class="arrow">↗</div></div>
+            <div class="feature"><div class="num">02</div><div><h3>Фудзи — главный пейзаж</h3><p>Кавагутико, отражение горы в озере и простор Oishi Park — японская природа после ритма мегаполиса.</p></div><div class="arrow">↗</div></div>
+            <div class="feature"><div class="num">03</div><div><h3>Киото — живая традиция</h3><p>Фусими Инари, старые улицы Хигасиямы, храмы и вечерний Гион — классическая Япония без музейной дистанции.</p></div><div class="arrow">↗</div></div>
+            <div class="feature"><div class="num">04</div><div><h3>Осака — энергия и вкус</h3><p>Namba, Dotonbori и Kuromon Market — неоновая гастрономическая столица и финальный аккорд поездки.</p></div><div class="arrow">↗</div></div>
+          </div>
+        </div>
+        <aside class="quote-card reveal">
+          <div class="sun"></div>
+          <div><blockquote>Сначала — масштаб.<br>Потом — детали,<br>которые останутся.</blockquote><p>Токио удивляет, Фудзи меняет темп, Киото настраивает взгляд, Осака оставляет финальное послевкусие.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="budget" id="budget">
+      <div class="shell budget-grid">
+        <div class="reveal">
+          <div class="eyebrow">Рабочий сценарий · на двоих</div>
+          <h2 class="display">Бюджет,<br>который виден</h2>
+          <div class="total"><strong>510 418 ₽</strong><span>поездка с резервом 15%</span></div>
+          <p class="budget-lead">В расчёте: перелёты, девять ночей, питание, междугородний и городской транспорт, входные билеты, страховка, связь и сервисные расходы.</p>
+        </div>
+        <div class="bars reveal">
+          <div class="bar"><div class="bar-top"><span>Перелёты</span><span>180 000 ₽</span></div><div class="bar-line"><i style="--w:100%"></i></div></div>
+          <div class="bar"><div class="bar-top"><span>Отели · 9 ночей</span><span>126 405 ₽</span></div><div class="bar-line"><i style="--w:70%"></i></div></div>
+          <div class="bar"><div class="bar-top"><span>Питание · 10 дней</span><span>63 600 ₽</span></div><div class="bar-line"><i style="--w:35%"></i></div></div>
+          <div class="bar"><div class="bar-top"><span>Транспорт по Японии</span><span>35 775 ₽</span></div><div class="bar-line"><i style="--w:20%"></i></div></div>
+          <div class="bar"><div class="bar-top"><span>Остальные расходы</span><span>38 062 ₽</span></div><div class="bar-line"><i style="--w:21%"></i></div></div>
+          <div class="budget-note">
+            <div><strong>100 000 ₽</strong><span>отдельный фонд на JoJo, аниме-мерч и покупки</span></div>
+            <div><strong>610 418 ₽</strong><span>рабочий итог путешествия вместе с покупками</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final">
+      <div class="final-inner reveal">
+        <div class="eyebrow" style="justify-content:center">Москва → Токио → KIX → Москва</div>
+        <h2 class="display">日本 <span class="red">2027</span></h2>
+        <p>Первая Япония — не список достопримечательностей, а десять дней с собственной драматургией: энергия, горизонт, тишина и яркий финал.</p>
+        <div class="stamp">旅</div>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="day-sheet" id="daySheet" aria-labelledby="daySheetTitle">
+    <button class="day-sheet-close" id="daySheetClose" type="button" aria-label="Закрыть подробности дня">×</button>
+    <div class="day-sheet-scroll">
+      <div class="day-gallery" id="dayGallery"></div>
+      <div class="day-sheet-body">
+        <header>
+          <div class="day-sheet-kicker" id="daySheetMeta"></div>
+          <h2 id="daySheetTitle"></h2>
+          <p class="day-sheet-lead" id="daySheetLead"></p>
+          <div class="day-places" id="dayPlaces"></div>
+        </header>
+        <div>
+          <div class="day-flow" id="dayFlow"></div>
+          <div class="day-alt" id="dayAlt"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="site-footer"><div class="shell"><span>JAPAN / AUTUMN 2027</span><span>ТОКИО · КАВАГУТИКО · КИОТО · ОСАКА</span></div></footer>
+
+  <script>
+    const days = [
+      ["01", "17 октября · Токио", "Прилететь и выдохнуть", "Заселение, хороший ужин и короткий вечерний Shinjuku — если останутся силы.", "Лёгкий старт", "東"],
+      ["02", "18 октября · Токио", "Старый Токио и Акихабара", "Утро в Asakusa и Senso-ji, после обеда — аниме-магазины, мерч и огни Akihabara.", "Средний ритм", "京"],
+      ["03", "19 октября · Токио", "Наш день JoJo", "Meiji Jingu, затем THE JOJO WORLD и IGGY CAFE в Shibuya PARCO. Вечером — Shibuya Sky.", "Главное событие", "奇"],
+      ["04", "20 октября · Кавагутико", "К озеру и Фудзи", "Автобус из Shinjuku, обед, отдых и прогулка у Lake Kawaguchiko через Oishi Park.", "Смена пейзажа", "富"],
+      ["05", "21 октября · Киото", "Утренний Фудзи — Киото", "Короткий выход к озеру, автобус до Mishima и синкансэн в Kyoto. Gion — вечером.", "Большой переезд", "士"],
+      ["06", "22 октября · Киото", "Фусими Инари", "Утро среди тории, затем Kiyomizu-dera и улочки Higashiyama в компактном дневном блоке.", "Обязательный день", "伏"],
+      ["07", "23 октября · Киото", "Арасияма и Понточо", "Бамбуковая роща, кафе и отдых. Вечером — камерный ужин у переулков Pontocho.", "Мягкий ритм", "嵐"],
+      ["08", "24 октября · Осака", "Замок и вечерний город", "Переезд, Osaka Castle по настроению, затем Namba и Dotonbori с ужином.", "Новая энергия", "阪"],
+      ["09", "25 октября · Осака", "Еда, покупки, свобода", "Kuromon Market, свободное время и Umeda Sky Building. Альтернатива — полный день в USJ.", "Открытый день", "食"],
+      ["10", "26 октября · KIX", "Финальный завтрак", "Последнее утро рядом с отелем, дорога в Kansai Airport и вылет домой.", "До встречи", "終"]
+    ];
+    const dayDetails = {
+      "01": { meta:"17 октября · Токио", title:"Прилететь и выдохнуть", lead:"Первый день нужен, чтобы спокойно войти в город: добраться до отеля, заселиться и почувствовать вечерний Токио без обязательной программы.", places:["Shinjuku","Вечерний ужин","Отель"], images:[["assets/days/shinjuku.jpg","Shinjuku вечером"],["assets/days/shibuya.jpg","Огни западного Токио"]], flow:[["После прилёта","Аэропорт → отель","Паспортный контроль, багаж и удобный трансфер до выбранной базы."],["Вечер","Shinjuku","Короткая прогулка на 1–2 часа и первый ужин рядом с отелем."],["Финал","Ранний отдых","Без билетов и жёстких слотов: следующий день начинается полноценно."]], alt:"Если прилёт поздний — только заселение и ужин. Shibuya можно выбрать вместо Shinjuku, если она ближе к отелю." },
+      "02": { meta:"18 октября · Токио", title:"Старый Токио и Акихабара", lead:"Два разных слоя города в одном ясном маршруте: храмовый квартал утром и центр аниме-культуры после обеда.", places:["Asakusa","Senso-ji","Akihabara"], images:[["assets/days/asakusa.jpg","Senso-ji и Асакуса"],["assets/days/akihabara.jpg","Акихабара после заката"]], flow:[["Утро","Asakusa и Senso-ji","Храм, ворота Каминаримон и прилегающие торговые улицы — около двух часов."],["После обеда","Akihabara","Аниме-магазины, мерч и игровые пространства с паузами на кофе."],["Вечер","Свободное время","Ужин в районе базы или ещё один спокойный заход в выбранный магазин."]], alt:"teamLab Borderless может заменить утреннюю Асакусу. Акихабара остаётся главным блоком второй половины дня." },
+      "03": { meta:"19 октября · Токио", title:"Наш день JoJo", lead:"Самый личный токийский день: короткая прогулка через зелёный Meiji Jingu и большой блок в Shibuya PARCO.", places:["Meiji Jingu","Shibuya PARCO","THE JOJO WORLD","IGGY CAFE"], images:[["assets/days/shibuya.jpg","Shibuya"]], flow:[["Утро","Meiji Jingu","Короткий маршрут через лес и святилище перед городской частью дня."],["День","THE JOJO WORLD + IGGY CAFE","Магазин, кафе и мерч — на весь блок оставляем 2,5–3,5 часа."],["Закат","Shibuya Sky","Смотровая только при удобном слоте и желании продолжить день."]], alt:"Harajuku может заменить Meiji Jingu. JoJo-блок не заменяется; при нехватке времени первой убирается смотровая." },
+      "04": { meta:"20 октября · Кавагутико", title:"К озеру и Фудзи", lead:"После плотности Токио маршрут раскрывается: переезд к озеру, длинный горизонт и вечерний свет у подножия Фудзи.", places:["Lake Kawaguchiko","Oishi Park","Mount Fuji"], images:[["assets/days/kawaguchiko.jpg","Озеро Кавагутико и Фудзи"],["assets/days/fuji.jpg","Фудзи в вечернем свете"]], flow:[["Утро","Shinjuku → Kawaguchiko","Выселение и прямой автобус; с багажом на переезд уходит первая половина дня."],["После обеда","Озеро и Oishi Park","Прогулка по выбранному участку берега на 1,5–2,5 часа."],["Вечер","Онсэн или ужин","Тихий вечер рядом с местом ночёвки и проверка прогноза на утро."]], alt:"При ясной погоде и небольшой очереди Oishi Park можно заменить на Mt. Fuji Panoramic Ropeway." },
+      "05": { meta:"21 октября · Киото", title:"Утренний Фудзи — Киото", lead:"Утро остаётся за озером, а затем начинается красивый транзит через Mishima и синкансэн в древнюю столицу.", places:["Lake Kawaguchiko","Mishima","Shinkansen","Gion"], images:[["assets/days/fuji.jpg","Ранний вид на Фудзи"],["assets/days/evening-kyoto.jpg","Вечерний Гион"]], flow:[["До завтрака","Берег озера","Короткий выход к воде, если гора открыта и база находится рядом."],["День","Kawaguchiko → Mishima → Kyoto","Автобус и синкансэн; на путь от отеля до отеля закладываем 5–7 часов."],["Вечер","Gion","Только короткая прогулка и ужин после заселения."]], alt:"Chureito можно выбрать вместо прогулки у озера лишь при отличной погоде, раннем старте и достаточном запасе до автобуса." },
+      "06": { meta:"22 октября · Киото", title:"Фусими Инари и старый Киото", lead:"Главный день Киото строится вокруг тысяч красных тории, после которых остаётся компактная прогулка по восточным кварталам.", places:["Fushimi Inari","Kiyomizu-dera","Higashiyama"], images:[["assets/days/fushimi-inari.jpg","Тории Фусими Инари"],["assets/days/higashiyama.jpg","Улицы Хигасиямы"]], flow:[["Утро","Fushimi Inari Taisha","Святилище и нижняя часть тропы — 1,5–2,5 часа без обязательного подъёма на вершину."],["После обеда","Отдых и переезд","Пауза перед вторым районом и короткий городской маршрут."],["Вечер","Kiyomizu-dera / Higashiyama","Храм и старые улицы как один связный блок."]], alt:"Если пройти полный маршрут по горе, второй большой пеший блок убирается. Вместо него — короткий Gion и ужин." },
+      "07": { meta:"23 октября · Киото", title:"Арасияма и Понточо", lead:"Более камерный день после Фусими Инари: зелёный запад Киото, кафе и вечер у узких переулков Понточо.", places:["Arashiyama","Bamboo Grove","Pontocho"], images:[["assets/days/arashiyama.jpg","Бамбуковая роща Арасиямы"]], flow:[["Позднее утро","Arashiyama","Бамбуковая роща и компактная прогулка без длинного храмового марафона."],["После обеда","Кафе и отдых","Свободное время в районе или возвращение в отель."],["Вечер","Pontocho","Ужин и короткая прогулка у реки Камо."]], alt:"Kinkaku-ji может полностью заменить Арасияму. Соединять оба удалённых района в один день не планируем." },
+      "08": { meta:"24 октября · Осака", title:"Замок и вечерний город", lead:"Смена базы занимает только утро; дальше Осака сразу показывает два лица — простор у замка и плотный вечерний Dotonbori.", places:["Osaka Castle","Namba","Dotonbori"], images:[["assets/days/osaka-castle.jpg","Замок Осаки"],["assets/days/dotonbori.jpg","Dotonbori ночью"]], flow:[["Утро","Kyoto → Osaka","Обычный поезд, заселение или сдача багажа в отеле."],["День","Osaka Castle","Парк и музей внутри — два разных варианта в зависимости от сил."],["Вечер","Namba + Dotonbori","Единый прогулочный блок с едой и ночными огнями."]], alt:"Shinsekai может заменить посещение замка. Вечер в Dotonbori сохраняется в обоих вариантах." },
+      "09": { meta:"25 октября · Осака", title:"Еда, покупки, свобода", lead:"Последний полный день оставляет место вкусу и спонтанности: рынок, покупки, паузы и одна смотровая на закате.", places:["Kuromon Market","Namba","Umeda Sky Building"], images:[["assets/days/dotonbori.jpg","Гастрономическая Осака"]], flow:[["Утро","Kuromon Market","Завтрак-прогулка и знакомство с локальными продуктами."],["День","Покупки и свободное время","Namba, универмаги или возвращение за выбранным мерчем."],["Закат","Umeda Sky Building","Смотровая по желанию, затем ужин и сбор багажа."]], alt:"Universal Studios Japan заменяет весь городской день целиком. При таком выборе рынок, покупки и Umeda переносятся или убираются." },
+      "10": { meta:"26 октября · Kansai Airport", title:"Финальный завтрак", lead:"Короткое утро без новых обязательств: хороший завтрак, последний взгляд на Осаку и спокойная дорога в аэропорт.", places:["Namba","Kansai Airport","Вылет домой"], images:[["assets/days/dotonbori.jpg","Последнее утро в Осаке"],["assets/days/kansai-airport.jpg","Kansai International Airport"]], flow:[["Утро","Завтрак рядом с отелем","Короткий выход только при позднем рейсе."],["За 4–5 часов","Отель → KIX","Поезд или аэропортовый автобус с запасом на дорогу."],["Перед вылетом","Kansai Airport","Регистрация, багаж и финальные покупки после контроля."]], alt:"При раннем вылете городская прогулка убирается. Kuromon возможен вместо завтрака только при подходящих часах работы." }
+    };
+    const imageCredits = {
+      "shinjuku.jpg":["Martin Falbisoner · CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:Night_in_Shinjuku.JPG"],
+      "asakusa.jpg":["Daderot · Public domain","https://commons.wikimedia.org/wiki/File:Main_building,_Sensoji_Temple,_Asakusa,_Tokyo.jpg"],
+      "akihabara.jpg":["Lars Heineken · CC BY 4.0","https://commons.wikimedia.org/wiki/File:Akihabara_Night.jpg"],
+      "shibuya.jpg":["Landry Miguel · CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Shibuya_Crossing.jpg"],
+      "kawaguchiko.jpg":["Alpsdake · CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Mount_Fuji_from_Lake_Kawaguchi_(2015-10-26).jpg"],
+      "fuji.jpg":["Harperawl / SpikyLlama · CC0","https://commons.wikimedia.org/wiki/File:Fujikawaguchiko_view_of_Mt._Fuji.jpg"],
+      "fushimi-inari.jpg":["Balon Greyjoy · CC0","https://commons.wikimedia.org/wiki/File:20181110_Fushimi_Inari_Torii_13.jpg"],
+      "higashiyama.jpg":["Basile Morin · CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Pedestrian_road_with_pavements_and_paper_umbrellas,_Higashiyama-ku,_Kyoto,_Japan,_early_morning.jpg"],
+      "arashiyama.jpg":["Basile Morin · CC BY-SA 4.0","https://commons.wikimedia.org/wiki/File:Bamboo_Forest,_Arashiyama,_Kyoto,_Japan.jpg"],
+      "osaka-castle.jpg":["くるくるすうがく · CC0","https://commons.wikimedia.org/wiki/File:日本庭園から望む大阪城.jpg"],
+      "dotonbori.jpg":["Ray in Manila · CC BY 2.0","https://commons.wikimedia.org/wiki/File:Dotonbori_Canal_1.jpg"],
+      "kansai-airport.jpg":["sinndati8692 · CC BY-SA 3.0","https://commons.wikimedia.org/wiki/File:関空第1ターミナル全景_-_panoramio.jpg"]
+      ,"evening-kyoto.jpg":["lumoplank · CC0","https://commons.wikimedia.org/wiki/File:Streets_of_Gion,_Kyoto_-_Gion7709.jpg"]
+    };
+    const card = d => `<article class="day-card" role="button" tabindex="0" aria-haspopup="dialog" aria-label="Открыть день ${d[0]}: ${d[2]}" data-day="${d[0]}" data-tilt data-kanji="${d[5]}"><i class="card-glint" aria-hidden="true"></i><div class="day-no"><span>День ${d[0]}</span><span>${d[1]}</span></div><h3>${d[2]}</h3><p>${d[3]}</p><footer><span>${d[4]}</span><span class="card-open">Подробнее<i></i></span></footer></article>`;
+    const track = document.getElementById("track");
+    track.innerHTML = [...days, ...days].map(card).join("");
+    const marquee = document.getElementById("marquee");
+    document.getElementById("prev").onclick = () => { marquee.scrollBy({left:-408, behavior:"smooth"}); marquee.classList.add("paused"); };
+    document.getElementById("next").onclick = () => { marquee.scrollBy({left:408, behavior:"smooth"}); marquee.classList.add("paused"); };
+    marquee.addEventListener("mouseleave", () => marquee.classList.remove("paused"));
+    let touchX = 0;
+    marquee.addEventListener("pointerdown", e => { touchX = e.clientX; marquee.classList.add("paused"); });
+    marquee.addEventListener("pointerup", e => { marquee.scrollBy({left: touchX - e.clientX, behavior:"smooth"}); });
+
+    const daySheet = document.getElementById("daySheet");
+    const daySheetClose = document.getElementById("daySheetClose");
+    let lastDayTrigger = null;
+
+    function renderDaySheet(id) {
+      const detail = dayDetails[id] || dayDetails["01"];
+      document.getElementById("daySheetMeta").textContent = `День ${id} · ${detail.meta}`;
+      document.getElementById("daySheetTitle").textContent = detail.title;
+      document.getElementById("daySheetLead").textContent = detail.lead;
+      document.getElementById("dayPlaces").innerHTML = detail.places.map(place => `<span>${place}</span>`).join("");
+      document.getElementById("dayGallery").innerHTML = detail.images.map(([src, caption]) => { const credit = imageCredits[src.split("/").pop()]; return `<figure><img src="${src}" alt="${caption}" loading="lazy" decoding="async"><figcaption><span>${caption}</span><a class="photo-info" href="${credit[1]}" target="_blank" rel="noreferrer" title="${credit[0]}" aria-label="Источник фото: ${credit[0]}">↗</a></figcaption></figure>`; }).join("");
+      document.getElementById("dayFlow").innerHTML = detail.flow.map(([time, title, copy]) => `<div class="day-flow-item"><time>${time}</time><div><strong>${title}</strong><p>${copy}</p></div></div>`).join("");
+      document.getElementById("dayAlt").innerHTML = `<b>Вариант дня</b><span>${detail.alt}</span>`;
+      daySheet.querySelector(".day-sheet-scroll").scrollTop = 0;
+    }
+
+    function openDaySheet(id, trigger) {
+      lastDayTrigger = trigger || null;
+      renderDaySheet(id);
+      document.body.classList.add("sheet-open");
+      if (!daySheet.open) daySheet.showModal();
+      daySheetClose.focus({preventScroll:true});
+    }
+
+    function closeDaySheet() {
+      if (!daySheet.open || daySheet.classList.contains("closing")) return;
+      daySheet.classList.add("closing");
+      setTimeout(() => {
+        daySheet.close();
+        daySheet.classList.remove("closing");
+        document.body.classList.remove("sheet-open");
+        lastDayTrigger?.focus({preventScroll:true});
+      }, 360);
+    }
+
+    track.addEventListener("click", e => {
+      const trigger = e.target.closest("[data-day]");
+      if (trigger) openDaySheet(trigger.dataset.day, trigger);
+    });
+    track.addEventListener("keydown", e => {
+      const trigger = e.target.closest("[data-day]");
+      if (trigger && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openDaySheet(trigger.dataset.day, trigger); }
+    });
+    daySheetClose.addEventListener("click", closeDaySheet);
+    daySheet.addEventListener("cancel", e => { e.preventDefault(); closeDaySheet(); });
+    daySheet.addEventListener("click", e => { if (e.target === daySheet) closeDaySheet(); });
+
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const clamp = (min, value, max) => Math.max(min, Math.min(value, max));
+    const motion = { frame: 0, pointerX: innerWidth / 2, pointerY: innerHeight / 2, parallax: [] };
+
+    function initKineticType() {
+      document.querySelectorAll("[data-kinetic]").forEach(el => {
+        const chars = [...el.textContent];
+        el.textContent = "";
+        chars.forEach((char, i) => {
+          const glyph = document.createElement("span");
+          glyph.className = `glyph${char === " " ? " space" : ""}`;
+          glyph.style.setProperty("--i", i);
+          glyph.textContent = char === " " ? "\u00a0" : char;
+          el.append(glyph);
+        });
+      });
+    }
+
+    function initPointerGlow() {
+      const orb = document.getElementById("cursorOrb");
+      addEventListener("pointermove", e => {
+        motion.pointerX = e.clientX;
+        motion.pointerY = e.clientY;
+        orb.classList.add("active");
+        requestMotionFrame();
+      }, {passive:true});
+    }
+
+    function initParallax() {
+      motion.parallax = [...document.querySelectorAll("[data-parallax]")];
+    }
+
+    function initMagnetic() {
+      document.querySelectorAll("[data-magnetic]").forEach(el => {
+        el.addEventListener("pointermove", e => {
+          const r = el.getBoundingClientRect();
+          el.style.setProperty("--mag-x", `${(e.clientX-r.left-r.width/2)*.18}px`);
+          el.style.setProperty("--mag-y", `${(e.clientY-r.top-r.height/2)*.18}px`);
+        });
+        el.addEventListener("pointerleave", () => { el.style.setProperty("--mag-x","0px"); el.style.setProperty("--mag-y","0px"); });
+      });
+    }
+
+    function initCardTilt() {
+      document.querySelectorAll("[data-tilt]").forEach(el => {
+        el.addEventListener("pointermove", e => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX-r.left)/r.width, y = (e.clientY-r.top)/r.height;
+          el.style.setProperty("--ry", `${(x-.5)*9}deg`);
+          el.style.setProperty("--rx", `${(.5-y)*9}deg`);
+          el.style.setProperty("--card-x", `${x*100}%`);
+          el.style.setProperty("--card-y", `${y*100}%`);
+        });
+        el.addEventListener("pointerleave", () => { el.style.setProperty("--rx","0deg"); el.style.setProperty("--ry","0deg"); });
+      });
+    }
+
+    const nav = document.getElementById("nav");
+    const progress = document.getElementById("scrollProgress");
+    const routeLine = document.querySelector(".route-line");
+    const orb = document.getElementById("cursorOrb");
+    const heroBg = document.querySelector(".hero-bg");
+
+    function renderMotionFrame() {
+      motion.frame = 0;
+      nav.classList.toggle("scrolled", scrollY > 40);
+      const pageProgress = scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      progress.style.transform = `scaleX(${clamp(0,pageProgress,1)})`;
+      const r = routeLine.getBoundingClientRect();
+      const routeProgress = clamp(0, (innerHeight*.76-r.top)/(r.height+innerHeight*.35), 1);
+      routeLine.style.setProperty("--route-progress", routeProgress);
+      if (!reduceMotion) {
+        heroBg.style.setProperty("--mouse-x", `${(motion.pointerX / innerWidth - .5) * -14}px`);
+        heroBg.style.setProperty("--mouse-y", `${(motion.pointerY / innerHeight - .5) * -9}px`);
+        orb.style.transform = `translate3d(${motion.pointerX}px,${motion.pointerY}px,0)`;
+        motion.parallax.forEach(el => {
+          const offset = scrollY * Number(el.dataset.parallax || 0);
+          el.style.setProperty("--parallax-y", `${offset}px`);
+          if (!el.classList.contains("hero-bg")) el.style.transform = `translate3d(0,${offset}px,0)`;
+        });
+      }
+    }
+
+    function requestMotionFrame() {
+      if (!motion.frame) motion.frame = requestAnimationFrame(renderMotionFrame);
+    }
+
+    function initMotionEngine() {
+      addEventListener("scroll", requestMotionFrame, {passive:true});
+      requestMotionFrame();
+    }
+
+    const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }), {threshold:.12});
+    document.querySelectorAll(".reveal, .budget").forEach(el => io.observe(el));
+    initKineticType();
+    initMotionEngine();
+    if (!reduceMotion) { initPointerGlow(); initParallax(); initMagnetic(); initCardTilt(); }
+  </script>
+</body>
+</html>

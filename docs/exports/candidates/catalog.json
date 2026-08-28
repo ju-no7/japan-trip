@@ -1,0 +1,550 @@
+[
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/jojo-world.md",
+      "places/tokyo/iggy-cafe.md"
+    ],
+    "title": "THE JOJO WORLD + IGGY CAFE",
+    "tier": "Обязательно",
+    "when": "D03 · 19 октября",
+    "time": "2,5-3,5 ч на весь блок",
+    "load": "умеренная",
+    "why": "Официальный магазин JoJo и кафе внутри него в Shibuya PARCO. Самое точное попадание в ваши общие интересы: мерч, тематическая еда и время спокойно всё рассмотреть.",
+    "fit": "Сохраняем первым. Это две карточки проекта, но одна поездка и один общий запас времени. Посадка всей шестёрки и правила входа на 2027 ещё не подтверждены.",
+    "cost": "Кафе: 4 000-6 000 YEN / 2 120-3 180 RUB на двоих, уже внутри питания. Мерч отдельно; общий вход не оценён.",
+    "query": "THE JOJO WORLD TOKYO Shibuya PARCO",
+    "rank": 1,
+    "source_titles": [
+      "THE★JOJO WORLD TOKYO",
+      "IGGY CAFE"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=THE+JOJO+WORLD+TOKYO+Shibuya+PARCO"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/akihabara.md"
+    ],
+    "title": "Akihabara",
+    "tier": "Приоритет",
+    "when": "D02 · 18 октября",
+    "time": "2-3 ч",
+    "load": "умеренная",
+    "why": "Район для аниме-магазинов, фигурок и поиска мерча. Для вас это самостоятельная часть путешествия, а не короткая остановка между храмами.",
+    "fit": "Оставляем полноценный блок с паузами. Не заменяем его автоматически на музей или смотровую; магазины и конкретные покупки выберем отдельно.",
+    "cost": "Мерч - из фонда шопинга; кафе - из питания. Отдельный общий вход в район не заложен.",
+    "query": "Akihabara Tokyo",
+    "rank": 2,
+    "source_titles": [
+      "Akihabara"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Akihabara+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/asakusa.md",
+      "places/tokyo/sensoji.md"
+    ],
+    "title": "Asakusa + Senso-ji",
+    "tier": "Приоритет",
+    "when": "D02 · 18 октября",
+    "time": "1-2 ч вместе",
+    "load": "умеренная",
+    "why": "Старый Токио: храм Senso-ji и прогулка по прилегающим улицам Asakusa. Хороший контраст к аниме-магазинам и современной Shibuya.",
+    "fit": "Один утренний блок, не две отдельные экскурсии. Сокращаем прогулку при усталости; специальные платные зоны и услуги проверим отдельно.",
+    "cost": "Вход отдельно не оценён в проекте; еда, покупки и платные услуги отдельно.",
+    "query": "Senso-ji Asakusa Tokyo",
+    "rank": 3,
+    "source_titles": [
+      "Asakusa",
+      "Senso-ji"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Senso-ji+Asakusa+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/shibuya.md"
+    ],
+    "title": "Shibuya / Crossing",
+    "tier": "Приоритет",
+    "when": "D03 · 19 октября",
+    "time": "0,5-1 ч вне PARCO",
+    "load": "низкая при коротком круге",
+    "why": "Знаменитый перекрёсток и современный городской район. Удобная короткая прогулка в тот же день, когда едем за JoJo в PARCO.",
+    "fit": "Объединяем с JoJo по географии, но не добавляем ещё несколько часов хождения по магазинам. Можно увидеть район и без подъёма на Sky.",
+    "cost": "Покупки и заведения отдельно; общий прогулочный билет не заложен.",
+    "query": "Shibuya Scramble Crossing Tokyo",
+    "rank": 4,
+    "source_titles": [
+      "Shibuya / Crossing"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Crossing+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/meiji.md"
+    ],
+    "title": "Meiji Jingu",
+    "tier": "Приоритет",
+    "when": "D03 · 19 октября",
+    "time": "1-1,5 ч",
+    "load": "умеренная",
+    "why": "Синтоистское святилище среди деревьев. Спокойное начало дня перед шумной Shibuya и тематическим магазином.",
+    "fit": "Короткий утренний вариант в текущем плане. Harajuku может заменить его; проходить обе зоны полностью перед JoJo не требуется.",
+    "cost": "Общий вход отдельно не оценён; доступ и стоимость выбранных дополнительных зон ещё проверить.",
+    "query": "Meiji Jingu Tokyo",
+    "rank": 5,
+    "source_titles": [
+      "Meiji Jingu"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Meiji+Jingu+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/shibuya-sky.md"
+    ],
+    "title": "Shibuya Sky",
+    "tier": "По желанию",
+    "when": "D03 · 19 октября",
+    "time": "1-1,5 ч + очередь",
+    "load": "умеренная",
+    "why": "Смотровая над Shibuya: панорама города как завершение дня. Из кандидатов на смотровую наиболее естественно сочетается с днём JoJo.",
+    "fit": "Только если останутся силы и будет удобный слот. Не жертвуем временем в кафе ради заката; ветер и доступ на крышу могут изменить план.",
+    "cost": "Исторический ориентир: 6 800 YEN / 3 604 RUB на двоих, онлайн после 15:00. Не тариф 2027.",
+    "query": "Shibuya Sky Tokyo",
+    "rank": 6,
+    "source_titles": [
+      "Shibuya Sky"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Shibuya+Sky+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/teamlab.md"
+    ],
+    "title": "teamLab Borderless",
+    "tier": "Альтернатива",
+    "when": "Вместо блока D02",
+    "time": "2-3 ч + дорога",
+    "load": "умеренная, много стоя",
+    "why": "Цифровой художественный музей света, проекций и зеркал в Azabudai Hills. Кандидат на необычное свидание; это не музей аниме и не teamLab Planets.",
+    "fit": "Заменяет Asakusa + Senso-ji, а не добавляется сверху. Akihabara стараемся сохранить; географию дня пересчитываем. Проверить предупреждения о свете и тёмных помещениях.",
+    "cost": "Исторический ориентир: от 7 200 YEN / 3 816 RUB на двоих. Точный билет на 2027 не выбран.",
+    "query": "teamLab Borderless Azabudai Hills Tokyo",
+    "rank": 7,
+    "source_titles": [
+      "teamLab Borderless"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=teamLab+Borderless+Azabudai+Hills+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/harajuku.md"
+    ],
+    "title": "Harajuku",
+    "tier": "По желанию",
+    "when": "Замена Meiji в D03",
+    "time": "1-1,5 ч",
+    "load": "умеренная",
+    "why": "Район уличной моды, магазинов и яркой городской атмосферы. Скорее вариант для прогулки и разглядывания витрин, чем обязательная достопримечательность.",
+    "fit": "Выбираем вместо Meiji, если больше хочется города и покупок. В насыщенный день сокращаем первым; JoJo остаётся главным блоком.",
+    "cost": "Покупки отдельно; кафе учитываем в питании.",
+    "query": "Harajuku Tokyo",
+    "rank": 8,
+    "source_titles": [
+      "Harajuku"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Harajuku+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/shinjuku.md"
+    ],
+    "title": "Shinjuku",
+    "tier": "По силам",
+    "when": "D01 · 17 октября",
+    "time": "до 1-2 ч",
+    "load": "низкая при коротком круге",
+    "why": "Первое знакомство с вечерним Токио: городские огни, улицы и ужин. Его ценность в плане - мягко начать поездку после перелёта.",
+    "fit": "Только после отдыха и если удобно от отеля. При позднем прилёте отменяем без потерь; Shibuya может заменить прогулку по расположению базы.",
+    "cost": "Отдельный вход не заложен; ужин и выбранные заведения отдельно.",
+    "query": "Shinjuku Tokyo",
+    "rank": 9,
+    "source_titles": [
+      "Shinjuku"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Shinjuku+Tokyo"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/skytree.md"
+    ],
+    "title": "Tokyo Skytree",
+    "tier": "Альтернатива",
+    "when": "Вместо другой смотровой",
+    "time": "1,5-2 ч + очередь",
+    "load": "умеренная",
+    "why": "Высотная смотровая башня. Подойдёт, если панорама города важнее ещё одного прогулочного района или если предпочтёте её Shibuya Sky.",
+    "fit": "Не ставим обе токийские смотровые автоматически. Если переносим посещение в D02, заново распределяем время, сохраняя приоритет аниме-магазинов.",
+    "cost": "Исторический ориентир: 4 800-7 600 YEN / 2 544-4 028 RUB на двоих; зависит от типа билета.",
+    "query": "Tokyo Skytree",
+    "rank": 10,
+    "source_titles": [
+      "Tokyo Skytree"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree"
+  },
+  {
+    "city": "tokyo",
+    "files": [
+      "places/tokyo/ueno.md"
+    ],
+    "title": "Ueno",
+    "tier": "Резерв",
+    "when": "Замена крупного блока D02",
+    "time": "1,5-3 ч",
+    "load": "умеренная",
+    "why": "Парковый и музейный район для более спокойной прогулки. Может понравиться, если захочется зелени или конкретного музея вместо части шопинга.",
+    "fit": "В каталоге сохраняем, но по вашим интересам Akihabara выше. Музей или зоопарк не считаем уже выбранными и не добавляем в свободное время автоматически.",
+    "cost": "Музеи и зоопарк отдельно: YEN - уточнить / RUB - уточнить.",
+    "query": "Ueno Park Tokyo",
+    "rank": 11,
+    "source_titles": [
+      "Ueno"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Ueno+Park+Tokyo"
+  },
+  {
+    "city": "fuji",
+    "files": [
+      "places/fuji/kawaguchiko.md"
+    ],
+    "title": "Озеро Kawaguchiko",
+    "tier": "Приоритет",
+    "when": "D04-D05 · 20-21 октября",
+    "time": "1-2 ч + короткое утро",
+    "load": "низкая при коротком участке",
+    "why": "Главная идея ночёвки у Фудзи: озеро, виды на гору и время без спешки. Выбираем доступный участок берега, а не полный обход озера.",
+    "fit": "Сохраняем вечер и короткое утреннее окно рядом с ночёвкой. Облака могут скрыть гору; видимость не гарантируется.",
+    "cost": "Отдельный вход в проекте не указан; местный транспорт отдельно.",
+    "query": "Lake Kawaguchi Japan",
+    "rank": 1,
+    "source_titles": [
+      "Озеро Kawaguchiko"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Lake+Kawaguchi+Japan"
+  },
+  {
+    "city": "fuji",
+    "files": [
+      "places/fuji/oishi-park.md"
+    ],
+    "title": "Oishi Park",
+    "tier": "Приоритет",
+    "when": "D04 · 20 октября",
+    "time": "0,5-1 ч + дорога",
+    "load": "низкая",
+    "why": "Парк у берега озера как конкретная точка для прогулки и фотографий. Дополняет озеро, а не требует отдельной большой экскурсии.",
+    "fit": "Основной кандидат после заселения. Выбираем по погоде и дороге от отеля; не обещаем определённое цветение или осеннюю окраску.",
+    "cost": "Цена в исходных карточках не указана: YEN - уточнить / RUB - уточнить.",
+    "query": "Oishi Park Kawaguchiko",
+    "rank": 2,
+    "source_titles": [
+      "Oishi Park"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Oishi+Park+Kawaguchiko"
+  },
+  {
+    "city": "fuji",
+    "files": [
+      "places/fuji/ropeway.md"
+    ],
+    "title": "Mt. Fuji Panoramic Ropeway",
+    "tier": "Альтернатива",
+    "when": "Вместо Oishi Park в D04",
+    "time": "1-1,5 ч + очередь",
+    "load": "низкая-умеренная",
+    "why": "Канатная дорога к панорамной точке над озером. Вариант, если хочется посмотреть на пейзаж сверху без длинной пешей прогулки.",
+    "fit": "Выбираем вместо Oishi, если подходят погода и очередь. При ветре или плохой видимости не привязываем к ней весь день.",
+    "cost": "Исторически туда-обратно: 2 000 YEN / 1 060 RUB на двоих. Не тариф 2027.",
+    "query": "Mt Fuji Panoramic Ropeway",
+    "rank": 3,
+    "source_titles": [
+      "Mt. Fuji Panoramic Ropeway"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Mt+Fuji+Panoramic+Ropeway"
+  },
+  {
+    "city": "fuji",
+    "files": [
+      "places/fuji/chureito.md"
+    ],
+    "title": "Chureito / Arakurayama Sengen Park",
+    "tier": "Резерв",
+    "when": "Утро D05 · 21 октября",
+    "time": "1,5-2,5 ч + дорога",
+    "load": "повышенная: подъём",
+    "why": "Пагода и известный ракурс с Фудзи. Сильный фотокандидат, но требует больше сил и времени, чем короткая прогулка у озера.",
+    "fit": "Только вместо утреннего берега и с надёжным запасом до автобуса. Лестницы, доступ и возврат за багажом проверить; межгород важнее.",
+    "cost": "В исходном диалоге вход указан бесплатным; на 2027 не подтверждено. Транспорт отдельно.",
+    "query": "Chureito Pagoda Arakurayama Sengen Park",
+    "rank": 4,
+    "source_titles": [
+      "Chureito / Arakurayama Sengen Park"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Chureito+Pagoda+Arakurayama+Sengen+Park"
+  },
+  {
+    "city": "kyoto",
+    "files": [
+      "places/kyoto/fushimi-inari.md"
+    ],
+    "title": "Fushimi Inari Taisha",
+    "tier": "Обязательно",
+    "when": "D06 · 22 октября",
+    "time": "1,5-2,5 ч; полный 3-4 ч",
+    "load": "умеренная; полный - высокая",
+    "why": "Святилище с дорожками красных тории. Главный обязательный пункт Киото; подъём до вершины не нужен, чтобы включить его в поездку.",
+    "fit": "База - без обязательной вершины. Если выбираем полный горный маршрут, убираем второй большой пеший блок, а следующий день оставляем легче.",
+    "cost": "Условия общего входа ещё проверить: YEN - уточнить / RUB - уточнить.",
+    "query": "Fushimi Inari Taisha Kyoto",
+    "rank": 1,
+    "source_titles": [
+      "Fushimi Inari Taisha"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha+Kyoto"
+  },
+  {
+    "city": "kyoto",
+    "files": [
+      "places/kyoto/kiyomizu.md",
+      "places/kyoto/higashiyama.md"
+    ],
+    "title": "Kiyomizu-dera + Higashiyama",
+    "tier": "Приоритет",
+    "when": "D06 · 22 октября",
+    "time": "около 2-3 ч вместе",
+    "load": "умеренная-повышенная",
+    "why": "Храм Kiyomizu-dera и старые улицы Higashiyama. Один связанный блок для знакомства с историческим Киото, с остановками и отдыхом.",
+    "fit": "После обеда и паузы, только при коротком Inari. Не суммируем время одних и тех же улиц дважды. При усталости заменяем блок коротким Gion.",
+    "cost": "Kiyomizu: исторически 1 000 YEN / 530 RUB на двоих. В Higashiyama покупки и еда отдельно.",
+    "query": "Kiyomizu-dera Kyoto",
+    "rank": 2,
+    "source_titles": [
+      "Kiyomizu-dera",
+      "Higashiyama"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto"
+  },
+  {
+    "city": "kyoto",
+    "files": [
+      "places/kyoto/gion.md"
+    ],
+    "title": "Gion",
+    "tier": "Приоритет",
+    "when": "Один вечер D05 или D06",
+    "time": "0,5-1 ч",
+    "load": "низкая при коротком круге",
+    "why": "Исторический район для вечерней прогулки. Подходит как небольшое знакомство с Киото после заселения или как облегчённая замена длинному блоку.",
+    "fit": "Достаточно одного вечера, не повторяем ради отметки в списке. Уважаем частные территории и правила фото; это не обещание встречи с гейко.",
+    "cost": "Расходы заведений отдельно; прогулочный вход не заложен.",
+    "query": "Gion Kyoto",
+    "rank": 3,
+    "source_titles": [
+      "Gion"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Gion+Kyoto"
+  },
+  {
+    "city": "kyoto",
+    "files": [
+      "places/kyoto/arashiyama.md"
+    ],
+    "title": "Arashiyama / Bamboo Grove",
+    "tier": "Приоритет",
+    "when": "D07 · 23 октября",
+    "time": "1,5-2 ч в коротком варианте",
+    "load": "умеренная",
+    "why": "Бамбуковая роща и прогулка по району Arashiyama. Природный контраст храмам и улицам предыдущего дня.",
+    "fit": "Для восстановительного дня оставляем компактный круг, кафе и отдых. Не добавляем по умолчанию сады, храмы и ещё один удалённый район.",
+    "cost": "Отдельный вход не заложен; выбранные платные зоны и дорога отдельно.",
+    "query": "Arashiyama Bamboo Grove Kyoto",
+    "rank": 4,
+    "source_titles": [
+      "Arashiyama / Bamboo Grove"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove+Kyoto"
+  },
+  {
+    "city": "kyoto",
+    "files": [
+      "places/kyoto/pontocho.md"
+    ],
+    "title": "Pontocho",
+    "tier": "По желанию",
+    "when": "Вечер D07 · 23 октября",
+    "time": "1-1,5 ч вместе с ужином",
+    "load": "низкая",
+    "why": "Атмосферная ресторанная улица для вечернего завершения дня. Это прежде всего прогулка с ужином, а не дополнительная экскурсия.",
+    "fit": "Оставляем по силам. Конкретное заведение, меню и возможность посадить шестерых выберем позже; бронирование не подразумевается.",
+    "cost": "Ужин внутри категории питания, не добавляем второй раз.",
+    "query": "Pontocho Kyoto",
+    "rank": 5,
+    "source_titles": [
+      "Pontocho"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Pontocho+Kyoto"
+  },
+  {
+    "city": "kyoto",
+    "files": [
+      "places/kyoto/kinkakuji.md"
+    ],
+    "title": "Kinkaku-ji",
+    "tier": "Альтернатива",
+    "when": "Вместо Arashiyama в D07",
+    "time": "1-1,5 ч + дорога",
+    "load": "умеренная",
+    "why": "Золотой павильон: ещё один яркий образ Киото. Хороший выбор, если архитектура и храмовый сад интереснее бамбуковой рощи.",
+    "fit": "В текущем темпе это замена Arashiyama, а не обязательная вторая половина дня. Учитываем отдельную дорогу и часы закрытия.",
+    "cost": "Исторический ориентир: 1 000 YEN / 530 RUB на двоих. Не тариф 2027.",
+    "query": "Kinkaku-ji Kyoto",
+    "rank": 6,
+    "source_titles": [
+      "Kinkaku-ji"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Kinkaku-ji+Kyoto"
+  },
+  {
+    "city": "osaka",
+    "files": [
+      "places/osaka/dotonbori.md",
+      "places/osaka/namba.md"
+    ],
+    "title": "Dotonbori + Namba",
+    "tier": "Приоритет",
+    "when": "D08 · 24 октября",
+    "time": "1,5-2 ч с ужином",
+    "load": "умеренная",
+    "why": "Вечерняя Осака: яркие вывески, городской шум и еда. Namba - связующий район, Dotonbori - центр выбранного вечернего впечатления.",
+    "fit": "Один блок после заселения, не две прогулки подряд. Если устанем после переезда, сокращаем круг, но оставляем спокойный ужин.",
+    "cost": "Еда внутри питания; покупки и отдельные заведения по факту.",
+    "query": "Dotonbori Namba Osaka",
+    "rank": 1,
+    "source_titles": [
+      "Dotonbori",
+      "Namba"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Dotonbori+Namba+Osaka"
+  },
+  {
+    "city": "osaka",
+    "files": [
+      "places/osaka/kuromon.md"
+    ],
+    "title": "Kuromon Market",
+    "tier": "Приоритет",
+    "when": "D09 · 25 октября",
+    "time": "1-1,5 ч с едой",
+    "load": "низкая-умеренная",
+    "why": "Рынок для прогулки и еды небольшими порциями. Хорошо соответствует свободному городскому дню перед возвращением домой.",
+    "fit": "Основной лёгкий блок D09. D10 - лишь запасной вариант при подходящем времени рейса; специально возвращаться дважды не нужно.",
+    "cost": "Еда внутри питания, не отдельная категория входных билетов.",
+    "query": "Kuromon Market Osaka",
+    "rank": 2,
+    "source_titles": [
+      "Kuromon Market"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Kuromon+Market+Osaka"
+  },
+  {
+    "city": "osaka",
+    "files": [
+      "places/osaka/castle.md"
+    ],
+    "title": "Osaka Castle",
+    "tier": "По силам",
+    "when": "D08 · 24 октября",
+    "time": "1,5-2,5 ч",
+    "load": "умеренная",
+    "why": "Замок и окружающий парк. Можно выбрать наружную прогулку либо посещение музея внутри; это разные по времени и впечатлению варианты.",
+    "fit": "После переезда только по силам. Если музей неинтересен, не покупаем билет ради галочки; Shinsekai может заменить этот блок.",
+    "cost": "Музей: исторически 2 400 YEN / 1 272 RUB на двоих. Не переносим эту цену на прогулку по парку.",
+    "query": "Osaka Castle Japan",
+    "rank": 3,
+    "source_titles": [
+      "Osaka Castle"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Osaka+Castle+Japan"
+  },
+  {
+    "city": "osaka",
+    "files": [
+      "places/osaka/shinsekai.md"
+    ],
+    "title": "Shinsekai",
+    "tier": "Альтернатива",
+    "when": "Вместо замка в D08",
+    "time": "1-1,5 ч",
+    "load": "умеренная",
+    "why": "Район с ретро-атмосферой и городскими вывесками. Больше подойдёт для улиц и еды, чем для музейного посещения.",
+    "fit": "Выбираем вместо замка, если хочется ещё городской Осаки. Платные объекты внутри района не считаем включёнными автоматически.",
+    "cost": "Платные объекты, еда и покупки отдельно; точные суммы не оценены.",
+    "query": "Shinsekai Osaka",
+    "rank": 4,
+    "source_titles": [
+      "Shinsekai"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Shinsekai+Osaka"
+  },
+  {
+    "city": "osaka",
+    "files": [
+      "places/osaka/umeda-sky.md"
+    ],
+    "title": "Umeda Sky Building",
+    "tier": "По желанию",
+    "when": "D09 · 25 октября",
+    "time": "1-1,5 ч + дорога",
+    "load": "умеренная",
+    "why": "Смотровая с панорамой Осаки. Вариант на завершение поездки, если после Токио ещё хочется посмотреть на город сверху.",
+    "fit": "Не обязательна, особенно если уже выбрана Shibuya Sky или Skytree. Добавляем только с запасом на дорогу и сбор багажа вечером.",
+    "cost": "Исторический ориентир: 4 000 YEN / 2 120 RUB на двоих. Не тариф 2027.",
+    "query": "Umeda Sky Building Osaka",
+    "rank": 5,
+    "source_titles": [
+      "Umeda Sky Building"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Umeda+Sky+Building+Osaka"
+  },
+  {
+    "city": "osaka",
+    "files": [
+      "places/osaka/usj.md"
+    ],
+    "title": "Universal Studios Japan",
+    "tier": "Полная замена дня",
+    "when": "Вместо городского D09",
+    "time": "целый день",
+    "load": "высокая",
+    "why": "Большой тематический парк аттракционов и шоу с мирами Nintendo, Harry Potter и другими. Это не JoJo-парк; будущие аниме-коллаборации не обещаем.",
+    "fit": "Выбирать, если действительно нравятся аттракционы. Заменяет весь городской день, требует пересчёта нагрузки, билетов и бюджета. Низкое место в топе - из-за формата маршрута.",
+    "cost": "Не включён в смету: YEN - уточнить / RUB - уточнить. Нужный набор билетов ещё не выбран.",
+    "query": "Universal Studios Japan Osaka",
+    "rank": 6,
+    "source_titles": [
+      "Universal Studios Japan"
+    ],
+    "map_url": "https://www.google.com/maps/search/?api=1&query=Universal+Studios+Japan+Osaka"
+  }
+]

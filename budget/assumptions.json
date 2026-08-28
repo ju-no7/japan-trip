@@ -1,0 +1,320 @@
+{
+  "updated": "2026-08-26",
+  "status": "illustrative_not_quote",
+  "people_paid": 2,
+  "group_people": 6,
+  "days_in_japan": 10,
+  "nights": 9,
+  "fx_rub_per_jpy": 0.53,
+  "fx_status": "historical_dialogue_assumption_not_current_rate",
+  "reserve_rate": 0.15,
+  "usj_jpy": null,
+  "items": [
+    {
+      "id": "flights",
+      "name": "Перелёты с багажом — лимит для поиска",
+      "currency": "RUB",
+      "low": 140000,
+      "base": 180000,
+      "high": 220000,
+      "basis": "Оценка из диалога; багаж/тариф не подтверждены",
+      "equivalents": {
+        "low": {
+          "YEN": 264151,
+          "RUB": 140000,
+          "display": "264 151 YEN / 140 000 RUB"
+        },
+        "base": {
+          "YEN": 339623,
+          "RUB": 180000,
+          "display": "339 623 YEN / 180 000 RUB"
+        },
+        "high": {
+          "YEN": 415094,
+          "RUB": 220000,
+          "display": "415 094 YEN / 220 000 RUB"
+        }
+      }
+    },
+    {
+      "id": "hotels",
+      "name": "Проживание 9 ночей, 1 номер на двоих",
+      "currency": "JPY",
+      "low": 193000,
+      "base": 238500,
+      "high": 284000,
+      "basis": "Оценка из диалога; 3/1/3/2 ночи",
+      "equivalents": {
+        "low": {
+          "YEN": 193000,
+          "RUB": 102290,
+          "display": "193 000 YEN / 102 290 RUB"
+        },
+        "base": {
+          "YEN": 238500,
+          "RUB": 126405,
+          "display": "238 500 YEN / 126 405 RUB"
+        },
+        "high": {
+          "YEN": 284000,
+          "RUB": 150520,
+          "display": "284 000 YEN / 150 520 RUB"
+        }
+      }
+    },
+    {
+      "id": "food",
+      "name": "Еда 10 дней на двоих, включая JoJo Cafe",
+      "currency": "JPY",
+      "low": 100000,
+      "base": 120000,
+      "high": 140000,
+      "basis": "Оценка из диалога; кафе вместо одного приёма пищи",
+      "equivalents": {
+        "low": {
+          "YEN": 100000,
+          "RUB": 53000,
+          "display": "100 000 YEN / 53 000 RUB"
+        },
+        "base": {
+          "YEN": 120000,
+          "RUB": 63600,
+          "display": "120 000 YEN / 63 600 RUB"
+        },
+        "high": {
+          "YEN": 140000,
+          "RUB": 74200,
+          "display": "140 000 YEN / 74 200 RUB"
+        }
+      }
+    },
+    {
+      "id": "transport",
+      "name": "Наземный транспорт с синкансэном",
+      "currency": "JPY",
+      "low": 60000,
+      "base": 67500,
+      "high": 75000,
+      "basis": "Оценка из диалога; аэропортовый трансфер и комиссии ещё проверить",
+      "equivalents": {
+        "low": {
+          "YEN": 60000,
+          "RUB": 31800,
+          "display": "60 000 YEN / 31 800 RUB"
+        },
+        "base": {
+          "YEN": 67500,
+          "RUB": 35775,
+          "display": "67 500 YEN / 35 775 RUB"
+        },
+        "high": {
+          "YEN": 75000,
+          "RUB": 39750,
+          "display": "75 000 YEN / 39 750 RUB"
+        }
+      }
+    },
+    {
+      "id": "activities",
+      "name": "Конверт на входные билеты без USJ",
+      "currency": "JPY",
+      "low": 24400,
+      "base": 26400,
+      "high": 28400,
+      "basis": "Оценка из диалога, не сумма утверждённых объектов",
+      "equivalents": {
+        "low": {
+          "YEN": 24400,
+          "RUB": 12932,
+          "display": "24 400 YEN / 12 932 RUB"
+        },
+        "base": {
+          "YEN": 26400,
+          "RUB": 13992,
+          "display": "26 400 YEN / 13 992 RUB"
+        },
+        "high": {
+          "YEN": 28400,
+          "RUB": 15052,
+          "display": "28 400 YEN / 15 052 RUB"
+        }
+      }
+    },
+    {
+      "id": "documents",
+      "name": "Подготовка документов и сервисные расходы",
+      "currency": "RUB",
+      "low": 4000,
+      "base": 8000,
+      "high": 12000,
+      "basis": "Предложенный запас, не размер визового сбора",
+      "equivalents": {
+        "low": {
+          "YEN": 7547,
+          "RUB": 4000,
+          "display": "7 547 YEN / 4 000 RUB"
+        },
+        "base": {
+          "YEN": 15094,
+          "RUB": 8000,
+          "display": "15 094 YEN / 8 000 RUB"
+        },
+        "high": {
+          "YEN": 22642,
+          "RUB": 12000,
+          "display": "22 642 YEN / 12 000 RUB"
+        }
+      }
+    },
+    {
+      "id": "insurance",
+      "name": "Страховка на двоих",
+      "currency": "RUB",
+      "low": 4000,
+      "base": 6000,
+      "high": 10000,
+      "basis": "Предложенный запас, котировка не получена",
+      "equivalents": {
+        "low": {
+          "YEN": 7547,
+          "RUB": 4000,
+          "display": "7 547 YEN / 4 000 RUB"
+        },
+        "base": {
+          "YEN": 11321,
+          "RUB": 6000,
+          "display": "11 321 YEN / 6 000 RUB"
+        },
+        "high": {
+          "YEN": 18868,
+          "RUB": 10000,
+          "display": "18 868 YEN / 10 000 RUB"
+        }
+      }
+    },
+    {
+      "id": "connectivity",
+      "name": "Связь на двоих",
+      "currency": "JPY",
+      "low": 3000,
+      "base": 5000,
+      "high": 8000,
+      "basis": "Предложенный запас, тариф не выбран",
+      "equivalents": {
+        "low": {
+          "YEN": 3000,
+          "RUB": 1590,
+          "display": "3 000 YEN / 1 590 RUB"
+        },
+        "base": {
+          "YEN": 5000,
+          "RUB": 2650,
+          "display": "5 000 YEN / 2 650 RUB"
+        },
+        "high": {
+          "YEN": 8000,
+          "RUB": 4240,
+          "display": "8 000 YEN / 4 240 RUB"
+        }
+      }
+    },
+    {
+      "id": "baggage_laundry",
+      "name": "Хранение/доставка багажа и стирка",
+      "currency": "JPY",
+      "low": 4000,
+      "base": 8000,
+      "high": 12000,
+      "basis": "Предложенный запас, услуги не выбраны",
+      "equivalents": {
+        "low": {
+          "YEN": 4000,
+          "RUB": 2120,
+          "display": "4 000 YEN / 2 120 RUB"
+        },
+        "base": {
+          "YEN": 8000,
+          "RUB": 4240,
+          "display": "8 000 YEN / 4 240 RUB"
+        },
+        "high": {
+          "YEN": 12000,
+          "RUB": 6360,
+          "display": "12 000 YEN / 6 360 RUB"
+        }
+      }
+    },
+    {
+      "id": "hotel_taxes",
+      "name": "Не включённые в тариф налоги/сборы жилья",
+      "currency": "JPY",
+      "low": 3000,
+      "base": 6000,
+      "high": 10000,
+      "basis": "Предложенный запас, не утверждение о ставках; убрать при включении в тариф",
+      "equivalents": {
+        "low": {
+          "YEN": 3000,
+          "RUB": 1590,
+          "display": "3 000 YEN / 1 590 RUB"
+        },
+        "base": {
+          "YEN": 6000,
+          "RUB": 3180,
+          "display": "6 000 YEN / 3 180 RUB"
+        },
+        "high": {
+          "YEN": 10000,
+          "RUB": 5300,
+          "display": "10 000 YEN / 5 300 RUB"
+        }
+      }
+    }
+  ],
+  "display_format": "YEN / RUB",
+  "display_note": "JPY is the ISO source currency; YEN is its user-facing label. Original low/base/high remain authoritative; converted values are derived, rounded half up to whole units. They are equivalents, not additive expenses.",
+  "totals_display": {
+    "low": {
+      "before_reserve": "666 645 YEN / 353 322 RUB",
+      "with_reserve": "766 642 YEN / 406 320 RUB",
+      "with_shopping": "955 321 YEN / 506 320 RUB"
+    },
+    "base": {
+      "before_reserve": "837 438 YEN / 443 842 RUB",
+      "with_reserve": "963 053 YEN / 510 418 RUB",
+      "with_shopping": "1 151 733 YEN / 610 418 RUB"
+    },
+    "high": {
+      "before_reserve": "1 014 004 YEN / 537 422 RUB",
+      "with_reserve": "1 166 104 YEN / 618 035 RUB",
+      "with_shopping": "1 354 784 YEN / 718 035 RUB"
+    }
+  },
+  "user_targets": {
+    "source": "planning/answers-2026-08-26.md#уточнение-бюджета",
+    "currency": "RUB",
+    "trip_max": 550000,
+    "shopping": 100000,
+    "combined_max": 650000,
+    "hard_cap": 550000,
+    "trip_display": "1 037 736 YEN / 550 000 RUB",
+    "shopping_display": "188 679 YEN / 100 000 RUB",
+    "combined_display": "1 226 415 YEN / 650 000 RUB"
+  },
+  "shopping": {
+    "currency": "RUB",
+    "amount": 100000,
+    "display": "188 679 YEN / 100 000 RUB",
+    "people": 2,
+    "confirmed_by_user": true,
+    "reserve_added": false
+  },
+  "group_rooms": 3,
+  "people_per_room": 2,
+  "night_count_status": "9 nights is the current calendar model; 10 days in Japan confirmed",
+  "comparison_to_target": {
+    "status": "base_within_budget",
+    "trip_headroom_rub": 39581.7,
+    "trip_headroom_display": "74 682 YEN / 39 582 RUB"
+  }
+}
